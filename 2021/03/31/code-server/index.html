@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Robert Wu">
+
+
+
+
+
+<title>近期折腾code-server的记录 | Robert&#39;s Homepage</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">&gt; $  cd  /home/robertwu</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">&gt; $  cd  /home/robertwu</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">近期折腾code-server的记录</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Robert Wu</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">March 31, 2021&nbsp;&nbsp;1:15:30</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/web-tool/">web tool</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h1 id="近期折腾code-server的记录"><a href="#近期折腾code-server的记录" class="headerlink" title="近期折腾code-server的记录"></a>近期折腾code-server的记录</h1><p>一年前就开始对nas这类的个人存储中心感兴趣，受限于当时正好在组装台式，预算不够，我个人又不是个很能将就的人，这个计划就暂时搁置了。现在想想其实挺后悔，一年前还在美国，网络比国内的大局域网好很多。</p>
+<p>最早我对nas的理解就是个外置硬盘，然后加上内网文件访问和共享。而这个功能对我来说，不是很有吸引力。这学期定在上海上课，每节课时间很久，课程选择也都是非专业课，我就想着找点东西摸摸鱼。因为笔记本是15寸的mbp，每次带出门都要背个大双肩背包，我就把整活的目光放到iPad上。我当时的想法就是在iPad上写代码。</p>
+<p>虽然arm构架的M1芯片的mbp已经上市，但iPad上还是没有可用的本地ide。插句题外话，有传言Xcode会移植到iPad OS上，如果属实，起码有一个可用的IDE，但我的日常平台还是VS code和Jetbrain，所以Xcode不是我的第一选择。而且既然Mac OS开始支持arm构架，iPad的A系列芯片性能也算不弱，未来可能有大神可以把Mac OS移植到iPad上。</p>
+<p>言归正传，我自然还是希望可以在iPad上使用VS code。想起来一年前有个大佬朋友跟我提过VS code官方出了一个网页的IDE版本，当时试用了一下，使用体验非常不好，但网页IDE提供了一个很好的思路。又去请教了那个大佬，得知了<a target="_blank" rel="noopener" href="https://github.com/cdr/code-server">code-server</a>的存在。</p>
+<p>在开始倒腾code-server前还走了个弯路。在网上查到了iPad上其实是可以安装虚拟机的，使用的软件是<a target="_blank" rel="noopener" href="https://getutm.app/">UTM</a>，可以安装老版本的Windows或者Linux发行版。问题是现在用UTM安装虚拟机的时候需要越狱环境。我捣鼓越狱最早可以追溯到iOS4的年代（iOS元年，在此之前叫iPhone OS 3）。因为现在移动支付高度发展，越狱会让设备变得不安全，我很早就放弃了越狱，所以这个方案被否决。</p>
+<p>之后就开始倒腾code-server。code-server是GitHub上的一个开源项目，可以快速部署个人的网页版IDE。因为我的想法是要远程访问code-server，考虑到我目前在上海租房，没有公网ip（未来把gen8搬回家也不一定就能搞到公网ip，很无语），于是开通了GitHub的<a target="_blank" rel="noopener" href="https://education.github.com/pack">学生包</a>，里面包含了<a target="_blank" rel="noopener" href="https://www.digitalocean.com/">Digital Ocean</a>的优惠券和<a target="_blank" rel="noopener" href="https://www.namecheap.com/">namecheap</a>的一年免费域名（.me）。这波白嫖实在快乐，我于是可以在do的云服务器上部署code-server，然后挂上免费域名进行远程访问。这样来看，这条路就走得通了。</p>
+<p>首先申请GitHub的student pack，在student pack的界面领取do和namecheap的优惠。之后用GitHub账号注册登陆do和namecheap。</p>
+<p>申请域名很简单，登陆进入namecheap，然后使用优惠券就好。</p>
+<p>Digital Ocean在登陆领取优惠之后，创建一个droplet。贴上我的配置作为参考，具体可以自己选：</p>
+<p><img src="%E8%BF%91%E6%9C%9F%E6%8A%98%E8%85%BEcode-server%E7%9A%84%E8%AE%B0%E5%BD%95%2099f0362d84b74d09a3dcb0551e1e12fb/BF9219AE-96AC-4F86-B67B-3D5F10035795.jpeg" alt="%E8%BF%91%E6%9C%9F%E6%8A%98%E8%85%BEcode-server%E7%9A%84%E8%AE%B0%E5%BD%95%2099f0362d84b74d09a3dcb0551e1e12fb/BF9219AE-96AC-4F86-B67B-3D5F10035795.jpeg"></p>
+<p>因为do的优惠是$100的优惠券，为了白嫖的时间长一点，我只是选择了最基础并且够用的套餐。</p>
+<p>具体的部署方法可以参考GitHub上code-server的官方文档，说的很详细。这里我给出一些我部署时候遇到的问题，一些东西上我的选择，和我觉得可能需要注意的点：</p>
+<ol>
+<li>建议在创建好的droplet上开启ssh，方便远程管理。可以直接使用terminal的ssh命令连接（配置key或者每次输入账号密码），或者使用软件托管，这里我选择的是<a target="_blank" rel="noopener" href="https://termius.com/">Termius</a>。全平台支持，而且自带SFTP，方便文件传输。如果是学生的话，Termius同样可以申请学生优惠，给官方发邮件可以白嫖一年，暂时不知道过期之后能不能再次申请。</li>
+<li>code-server上有很多种部署的方法，我选择用caddy把我的code-server挂到namecheap上。也可以用caddy设置多个用户，对应不同的登陆密码和文件访问权限。转发code-server到namecheap需要知道droplet的ip地址（在droplet的管理页面可以看），改写caddyfile，然后在namecheap的管理界面添加。</li>
+<li>可以用SFTP传输文件或者直接扔到code-server上，但SFTP的速度快一点。</li>
+</ol>
+
+        </div>
+
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/code-server/">  #code-server</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+            
+            <a class="next" rel="next" href="/2021/03/29/hello-world/">Hello World</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Robert Wu | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+</html>
