@@ -459,8 +459,6 @@ input[type="radio"]:not(:checked) + label:after {
 .icon-github:before {
   content: "\e88d";
 }
-
-
 @font-face {font-family: "iconfont";
   src: url('iconfont.eot?t=1617028535518'); /* IE9 */
   src: url('iconfont.eot?t=1617028535518#iefix') format('embedded-opentype'), /* IE6-IE8 */
