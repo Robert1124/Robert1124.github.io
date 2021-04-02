@@ -1,0 +1,29 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" >
+<!--
+2013-9-30: Created.
+-->
+<svg>
+<metadata>
+Created by iconfont
+</metadata>
+<defs>
+
+<font id="iconfont" horiz-adv-x="1024" >
+  <font-face
+    font-family="iconfont"
+    font-weight="500"
+    font-stretch="normal"
+    units-per-em="1024"
+    ascent="896"
+    descent="-128"
+  />
+    <missing-glyph />
+    
+    <glyph glyph-name="hospital" unicode="&#59651;" d="M880 16v768a32 32 0 0 1-32 32h-672a32 32 0 0 1-32-32v-768H64v-64h896v64z m-464 0v224h192v-224z m256 0v288H352v-288H208v736h608v-736zM544 656h-64v-96h-96v-64h96v-96h64v96h96v64h-96v96z"  horiz-adv-x="1024" />
+
+    
+
+
+  </font>
+</defs></svg>

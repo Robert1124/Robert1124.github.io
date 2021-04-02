@@ -107,68 +107,6 @@
             <div class="container">
     
     
-        <div class="post-toc">
-    <div class="tocbot-list">
-    </div>
-    <div class="tocbot-list-menu">
-        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
-        <a onclick="go_top()">Back to top</a>
-        <a onclick="go_bottom()">Go to bottom</a>
-    </div>
-</div>
-
-<script>
-    document.ready(
-        function () {
-            tocbot.init({
-                tocSelector: '.tocbot-list',
-                contentSelector: '.post-content',
-                headingSelector: 'h1, h2, h3, h4, h5',
-                collapseDepth: 1,
-                orderedList: false,
-                scrollSmooth: true,
-            })
-        }
-    )
-
-    function expand_toc() {
-        var b = document.querySelector(".tocbot-toc-expand");
-        tocbot.init({
-            tocSelector: '.tocbot-list',
-            contentSelector: '.post-content',
-            headingSelector: 'h1, h2, h3, h4, h5',
-            collapseDepth: 6,
-            orderedList: false,
-            scrollSmooth: true,
-        });
-        b.setAttribute("onclick", "collapse_toc()");
-        b.innerHTML = "Collapse all"
-    }
-
-    function collapse_toc() {
-        var b = document.querySelector(".tocbot-toc-expand");
-        tocbot.init({
-            tocSelector: '.tocbot-list',
-            contentSelector: '.post-content',
-            headingSelector: 'h1, h2, h3, h4, h5',
-            collapseDepth: 1,
-            orderedList: false,
-            scrollSmooth: true,
-        });
-        b.setAttribute("onclick", "expand_toc()");
-        b.innerHTML = "Expand all"
-    }
-
-    function go_top() {
-        window.scrollTo(0, 0);
-    }
-
-    function go_bottom() {
-        window.scrollTo(0, document.body.scrollHeight);
-    }
-
-</script>
-    
 
     
     <article class="post-wrap">
@@ -189,7 +127,7 @@
                         <span class="post-category">
                     Category:
                             
-                                <a href="/categories/web-tool/">web tool</a>
+                                <a href="/categories/%E6%8A%98%E8%85%BE%E8%AE%B0%E5%BD%95/">折腾记录</a>
                             
                         </span>
                     
@@ -198,7 +136,7 @@
         </header>
 
         <div class="post-content">
-            <h1 id="近期折腾code-server的记录"><a href="#近期折腾code-server的记录" class="headerlink" title="近期折腾code-server的记录"></a>近期折腾code-server的记录</h1><p>一年前就开始对nas这类的个人存储中心感兴趣，受限于当时正好在组装台式，预算不够，我个人又不是个很能将就的人，这个计划就暂时搁置了。现在想想其实挺后悔，一年前还在美国，网络比国内的大局域网好很多。</p>
+            <p>一年前就开始对nas这类的个人存储中心感兴趣，受限于当时正好在组装台式，预算不够，我个人又不是个很能将就的人，这个计划就暂时搁置了。现在想想其实挺后悔，一年前还在美国，网络比国内的大局域网好很多。</p>
 <p>最早我对nas的理解就是个外置硬盘，然后加上内网文件访问和共享。而这个功能对我来说，不是很有吸引力。这学期定在上海上课，每节课时间很久，课程选择也都是非专业课，我就想着找点东西摸摸鱼。因为笔记本是15寸的mbp，每次带出门都要背个大双肩背包，我就把整活的目光放到iPad上。我当时的想法就是在iPad上写代码。</p>
 <p>虽然arm构架的M1芯片的mbp已经上市，但iPad上还是没有可用的本地ide。插句题外话，有传言Xcode会移植到iPad OS上，如果属实，起码有一个可用的IDE，但我的日常平台还是VS code和Jetbrain，所以Xcode不是我的第一选择。而且既然Mac OS开始支持arm构架，iPad的A系列芯片性能也算不弱，未来可能有大神可以把Mac OS移植到iPad上。</p>
 <p>言归正传，我自然还是希望可以在iPad上使用VS code。想起来一年前有个大佬朋友跟我提过VS code官方出了一个网页的IDE版本，当时试用了一下，使用体验非常不好，但网页IDE提供了一个很好的思路。又去请教了那个大佬，得知了<a target="_blank" rel="noopener" href="https://github.com/cdr/code-server">code-server</a>的存在。</p>
@@ -215,6 +153,8 @@
 <li>code-server上有很多种部署的方法，我选择用caddy把我的code-server挂到namecheap上。也可以用caddy设置多个用户，对应不同的登陆密码和文件访问权限。转发code-server到namecheap需要知道droplet的ip地址（在droplet的管理页面可以看），改写caddyfile，然后在namecheap的管理界面添加。</li>
 <li>可以用SFTP传输文件或者直接扔到code-server上，但SFTP的速度快一点。</li>
 </ol>
+<p>&nbsp;&nbsp;</p>
+<p>&nbsp;&nbsp;</p>
 <hr>
 
         </div>
@@ -228,6 +168,8 @@
                     
                         <a href="/tags/code-server/">  #code-server</a>
                     
+                        <a href="/tags/%E6%95%99%E7%A8%8B/">  #教程</a>
+                    
                         
                 </span>
             </div>
@@ -238,6 +180,8 @@
             </div>
         </section>
         <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2021/04/03/cuctom_icon/">如何在Chic主题的首页添加自定义图标</a>
             
             
             <a class="next" rel="next" href="/2021/03/31/hello-world/">Hello World</a>

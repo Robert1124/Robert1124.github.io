@@ -12,7 +12,7 @@
 
 
 
-<title>Hello World | Robert&#39;s Homepage</title>
+<title>如何在Chic主题的首页添加自定义图标 | Robert&#39;s Homepage</title>
 
 
 
@@ -107,11 +107,73 @@
             <div class="container">
     
     
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
 
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">Hello World</h1>
+            <h1 class="post-title">如何在Chic主题的首页添加自定义图标</h1>
             
                 <div class="post-meta">
                     
@@ -120,14 +182,14 @@
 
                     
                         <span class="post-time">
-                        Date: <a href="#">March 31, 2021&nbsp;&nbsp;13:21:53</a>
+                        Date: <a href="#">April 3, 2021&nbsp;&nbsp;0:22:59</a>
                         </span>
                     
                     
                         <span class="post-category">
                     Category:
                             
-                                <a href="/categories/talkings/">talkings</a>
+                                <a href="/categories/Blog%E7%9B%B8%E5%85%B3/">Blog相关</a>
                             
                         </span>
                     
@@ -136,9 +198,30 @@
         </header>
 
         <div class="post-content">
-            <p>This is Robert. </p>
-<p>Welcome to my blog.</p>
-<p>Nice to meet you!</p>
+            <h3 id="下载代码"><a href="#下载代码" class="headerlink" title="下载代码"></a>下载代码</h3><ul>
+<li><p>从阿里iconfont搜索找到想要的图标</p>
+</li>
+<li><p>选择将图标加入购物车</p>
+</li>
+<li><p>点击购物车选择下载代码</p>
+</li>
+</ul>
+<h3 id="解压代码"><a href="#解压代码" class="headerlink" title="解压代码"></a>解压代码</h3><ul>
+<li><p>解压下载的压缩包</p>
+</li>
+<li><p>首次链接，建议在<code>themes/Chic/source/fonts</code>里新建<code>/font_custom</code>，把解压好的压缩包扔在里面（也可以自定义文件夹名称，或者直接扔在<code>themes/Chic/source/fonts</code>里）</p>
+</li>
+</ul>
+<h3 id="修改文件"><a href="#修改文件" class="headerlink" title="修改文件"></a>修改文件</h3><ul>
+<li><p>修改文件<code>themes/Chic/source/css/style.styl</code>，在<code>//icon</code>下加入代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;如果把压缩包扔在font_custom里</span><br><span class="line">@import &quot;..&#x2F;fonts&#x2F;font_custom&#x2F;iconfont.css&quot;</span><br><span class="line">&#x2F;&#x2F;如果压缩包在fonts里</span><br><span class="line">@import &quot;..&#x2F;fonts&#x2F;iconfont.css&quot;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="查找图标名"><a href="#查找图标名" class="headerlink" title="查找图标名"></a>查找图标名</h3><ul>
+<li>打开压缩包里的<code>iconfont.css</code>查看图标名称</li>
+</ul>
+<h3 id="添加内容"><a href="#添加内容" class="headerlink" title="添加内容"></a>添加内容</h3><ul>
+<li>打开<code>themes/Chic/_config.yml</code>中添加内容即可</li>
+</ul>
 <p>&nbsp;&nbsp;</p>
 <p>&nbsp;&nbsp;</p>
 <hr>
@@ -152,7 +235,7 @@
                 <span class="tag">
                     
                     
-                        <a href="/tags/talkings/">  #talkings</a>
+                        <a href="/tags/%E6%95%99%E7%A8%8B/">  #教程</a>
                     
                         
                 </span>
@@ -165,8 +248,8 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2021/03/31/code-server/">近期折腾code-server的记录</a>
             
+            <a class="next" rel="next" href="/2021/03/31/code-server/">近期折腾code-server的记录</a>
             
         </section>
 
