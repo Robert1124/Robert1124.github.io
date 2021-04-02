@@ -525,6 +525,28 @@ input[type="radio"]:not(:checked) + label:after {
 }
 
 
+@font-face {font-family: "iconfont";
+  src: url('iconfont.eot?t=1617396108641'); /* IE9 */
+  src: url('iconfont.eot?t=1617396108641#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('data:application/x-font-woff2;charset=utf-8;base64,d09GMgABAAAAAAOoAAsAAAAAB1QAAANaAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHEIGVgCCcAqCYII+ATYCJAMICwYABCAFhG0HMBtkBhHVm1fI/ohQ4vDS1MMmyZSx6+Lcxeqpk8eVkW7yruW1KixfSn8BmoG/AQkAAAAAkP9hR75/hDuYJbjlyahgJOkyqVTGywNxX3v/Pm27bsxvwC0NJF2BrDhrEg+hLKjg2m/OvwEalZEldGOPtphrOX1pOjDiK/Gdn2McLOcLyLZONpwLGFsNEGB2voWIyusNnHMBGlU0j9IosImOC6T+YwLQ6Q0AOGC9sP/LYCgA/rh3+v+vxOe7y3Nce/OnLqAuDqQAx14ecIEE5g1jN1EexHIgIGCPEXo++4QgFwPtCNB7kJ6IPKUS12STXCAtGRoLPgHy8AO6oNDAv0//phEOSQTkBcw1BffPgHGchf9MEYA9ngGANgo4gRGAC9qWmvxEYcgIp9IJxY5gXdkBX4hNWav94wFBKZApBAAlkXVObMw51SgHwGlVRR5o7TUtQLukehqk7zvW3n0+8efnof/JirbCVzROfEZ1nqq3vzJXXoPmbZ3I5AP7+Ni1je3CdVp7SXRm+VD0x93T2Pj046uObZJzjwX1809PfdGz348Ye3Q7HrvnGsMzOlbOZ8Ttgd+v7VNCYT7TWCkxJvPKMnm+8VJcUjVGzbA81cn3NrB82lUEpESt86j1e7CVwcGN6VZw4eb4msc3niUv35VhNUlMnyGvnWDe1G4nbFhKOedW8/Tzj0O9v9WKFWttgCc95bCD1TS0kbwYjWpCJq6iDaI8eBK9YjTI4uV++d9nw024+9jK6ufWEgzuAcAW7e6f8Rtfjz+Gjc7pphgAH/5+Nu5gi9HOAnynbCZePbtlAZfLBWqO2GaXlnLY3ZJAAHqBBWwSPvWVSd9njOSWHpbMJgZOuROUi3QD3Cq3wCN3BwKuuY8WNMkWCeICGCgTINBbgFDrDyK9SzQmfYTE6iuk+gCl1ySnrJxFBe2MlqAL9hcCh1KNtNIOsq/oFbHFSS4nP5HzwAuT4TgbvWCKPEaP/OVNRTRopgTOwmoYxwQZU4iODH2RbDsa6bIHDR1KVFtltARdsL8QOJRqWl7auc9f0Stii2twHeYnch7UDpPhuAV6EaWtcNdySv7ypiIaNFMCZ8GAMQwRZOWNQnRk6PcIZNuRVEy3FQ3nlyRPtwKl2grIyyVYb3iB+IWtFAAA') format('woff2'),
+  url('iconfont.woff?t=1617396108641') format('woff'),
+  url('iconfont.ttf?t=1617396108641') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
+  url('iconfont.svg?t=1617396108641#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-github:before {
+  content: "\e76f";
+}
+
+
 .header-logo a {
   padding: 0;
 }
