@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Robert Wu">
+
+
+
+
+
+<title>为Blog添加图床 | Robert&#39;s Homepage</title>
+
+
+
+    <link rel="icon" href="https://raw.githubusercontent.com/Robert1124/image/master/PicGo/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">% cd /home </a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">% cd /home </a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/category">Categories</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">为Blog添加图床</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Robert Wu</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">April 3, 2021&nbsp;&nbsp;13:40:41</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/java%E5%9F%BA%E7%A1%80%E9%9A%8F%E7%AC%94/">java基础随笔</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h3 id="Before"><a href="#Before" class="headerlink" title="Before"></a>Before</h3><p>本文用到的IDE为IntelliJ IDEA，也会介绍无包管理存在的情况下的应对方案</p>
+<p>在开始readfile前，需要把目标文件放入相应目录：</p>
+<p><img src="https://raw.githubusercontent.com/Robert1124/image/master/PicGo/%E6%88%AA%E5%B1%8F2021-04-03%20%E4%B8%8B%E5%8D%8812.47.03.png"></p>
+<p>在IntelliJ IDEA的环境下，或任何自动生成<code>/src</code>文件夹的IDE里，应该将目标文件（此处为<code>events.txt</code>）放在与<code>/src</code>文件夹平级的目录中</p>
+<p>对于不自动生成<code>/src</code>文件夹的IDE，将目标文件放置于<code>*.java</code>文件平级的目录即可</p>
+<h3 id="Readfile"><a href="#Readfile" class="headerlink" title="Readfile"></a>Readfile</h3><p>此处对于readfile操作，介绍简单的Scanner实现方式（并非唯一方式，也并非最优方式，只是方便初学者记忆的方式）</p>
+<p>首先引入Scanner包（下列二者选一皆可，建议选第二种，可以同时引入File相关的Exception，方便后面做try-catch block）：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//只引入Scanner包和File包</span></span><br><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"><span class="keyword">import</span> java.io.File;</span><br><span class="line"><span class="comment">//引入整个util包（包含Scanner）和整个io包（包含File）</span></span><br><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"><span class="keyword">import</span> java.io.*;</span><br></pre></td></tr></table></figure>
+
+<p>新建File和Scanner对象：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">File file = <span class="keyword">new</span> File(fileName);<span class="comment">//此处fileName替换为需要引入的fileName，在本例中为&quot;events.txt&quot;</span></span><br><span class="line">Scanner readFile = <span class="keyword">new</span> Scanner(file);</span><br></pre></td></tr></table></figure>
+
+<p>通过while-loop逐行读取文件内容：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>(readFile.hasNext())&#123;<span class="comment">//通过.hasNext()方法判断文件是否已经读取完整</span></span><br><span class="line">  <span class="comment">/*</span></span><br><span class="line"><span class="comment">  	直接将文件当前一整行保存在名为line的string里</span></span><br><span class="line"><span class="comment">  	此处将line申明在while-loop内和外皆可，但建议申明在内</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line">  String line = readFile.nextLine();</span><br><span class="line">  <span class="comment">/*</span></span><br><span class="line"><span class="comment">  	将内容存在line之后可对line自由进行下一步操作</span></span><br><span class="line"><span class="comment">  	常见的操作为：</span></span><br><span class="line"><span class="comment">  		1. string的split方法：String[] line_arr = line.split(regex);</span></span><br><span class="line"><span class="comment">  			 string.split()方法会将一个string从regex表示的内容分割开按顺序保存在一个array里</span></span><br><span class="line"><span class="comment">  			 regex为regular expression，即正则表达式，具体语法请善用搜索</span></span><br><span class="line"><span class="comment">  		2. Integer.parseInt()或Double.parseDouble()，将读取到的string转换为int或double类型</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在while-loop之后，记得要close scanner：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">readFile.close();<span class="comment">//现在很多编译器例如IntelliJ IDEA可以省略此句，但从语法和代码完整性角度建议保留</span></span><br></pre></td></tr></table></figure>
+
+<p>完整代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">className</span></span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">readFile</span><span class="params">(String fileName)</span></span>&#123;</span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">    	如果此方法没有参数的话，新建file对象时的括号内需要填写完整的fileName</span></span><br><span class="line"><span class="comment">    	如File file = new File(&quot;events.txt&quot;);</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    File file = <span class="keyword">new</span> File(fileName);</span><br><span class="line">		Scanner readFile = <span class="keyword">new</span> Scanner(file);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span>(readFile.hasNext())&#123;</span><br><span class="line">      String line = readFile.nextLine();</span><br><span class="line">      <span class="comment">/*</span></span><br><span class="line"><span class="comment">      	...</span></span><br><span class="line"><span class="comment">      */</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    readFile.close();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>上面介绍的为最基础的写法（对Exception没有处理，不建议），此处提供一个包含try-catch block的常规写法：</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">className</span></span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">readFile</span><span class="params">(String fileName)</span></span>&#123;</span><br><span class="line">    File file = <span class="keyword">new</span> File(fileName);</span><br><span class="line">		Scanner readFile = <span class="keyword">null</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">try</span>&#123;</span><br><span class="line">      readFile = <span class="keyword">new</span> Scanner(file);</span><br><span class="line">    &#125;<span class="keyword">catch</span>(FileNotFoundException e)&#123;</span><br><span class="line">      e.printStackTrace();<span class="comment">//视需求而定，可以删除</span></span><br><span class="line">      System.out.println(<span class="string">&quot;File not found&quot;</span>);<span class="comment">//视需求而定，可以删除</span></span><br><span class="line">      System.exit(<span class="number">0</span>);<span class="comment">//必须保留，如果不保留需要在while-loop部分添加assert避免readFile为null的情况</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span>(readFile.hasNext())&#123;</span><br><span class="line">      String line = readFile.nextLine();</span><br><span class="line">      <span class="comment">/*</span></span><br><span class="line"><span class="comment">      	...</span></span><br><span class="line"><span class="comment">      */</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    readFile.close();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="Writefile"><a href="#Writefile" class="headerlink" title="Writefile"></a>Writefile</h3><p>此处对于writefile操作，介绍简单的FileWriter实现方式（并非唯一方式，也并非最优方式）</p>
+<p>首先引入FileWriter包和File包：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//同上</span></span><br><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line"><span class="comment">//只引用FileWriter包和File包，不推荐，但可行</span></span><br><span class="line"><span class="keyword">import</span> java.io.FileWriter;</span><br><span class="line"><span class="keyword">import</span> java.io.File;</span><br></pre></td></tr></table></figure>
+
+<p>创建File和FileWriter对象：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">File file = <span class="keyword">new</span> File(fileName);<span class="comment">//同上，此处新建File对象是会自动创建新文件</span></span><br><span class="line">FileWriter output = <span class="keyword">new</span> FileWriter(file);<span class="comment">//类似上文提到的Scanner</span></span><br></pre></td></tr></table></figure>
+
+<p>写入内容：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">	此处content为写入内容，自行定义，类型为string</span></span><br><span class="line"><span class="comment">	需要注意的是此处.write方法不自带换行，如果需要换行写入，记得在content后添加&quot;\n&quot;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">output.write(content);</span><br></pre></td></tr></table></figure>
+
+<p>在写入之后，记得要close FileWriter：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">output.flush();<span class="comment">//此为刷新缓冲，可以省略，具体功能请善用搜索</span></span><br><span class="line">output.close();</span><br></pre></td></tr></table></figure>
+
+<p>此处处理Exception方式与上文类似但不相同，可以参照下面完整实例：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">className</span> <span class="title">throws</span> <span class="title">IOException</span></span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">saveToFile</span><span class="params">(String fileName)</span></span>&#123;</span><br><span class="line">    File file = <span class="keyword">new</span> File(fileName);</span><br><span class="line">		FileWriter output = <span class="keyword">new</span> FileWriter(file);</span><br><span class="line">    </span><br><span class="line">    output.write(content);</span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">    	...</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    </span><br><span class="line">    output.flush();</span><br><span class="line">    output.close();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>&nbsp;&nbsp;</p>
+<p>&nbsp;&nbsp;</p>
+<hr>
+
+        </div>
+
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/%E6%95%99%E7%A8%8B/">  #教程</a>
+                    
+                        <a href="/tags/java/">  #java</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+            
+            <a class="next" rel="next" href="/2021/04/03/blog-Image%20Hosting%20Service/">为Blog添加图床</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Robert Wu | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+</html>
