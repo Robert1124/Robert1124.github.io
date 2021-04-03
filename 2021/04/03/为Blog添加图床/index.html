@@ -12,7 +12,7 @@
 
 
 
-<title>如何在Chic主题的首页添加自定义图标 | Robert&#39;s Homepage</title>
+<title>为Blog添加图床 | Robert&#39;s Homepage</title>
 
 
 
@@ -173,7 +173,7 @@
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">如何在Chic主题的首页添加自定义图标</h1>
+            <h1 class="post-title">为Blog添加图床</h1>
             
                 <div class="post-meta">
                     
@@ -182,7 +182,7 @@
 
                     
                         <span class="post-time">
-                        Date: <a href="#">April 3, 2021&nbsp;&nbsp;0:22:59</a>
+                        Date: <a href="#">April 3, 2021&nbsp;&nbsp;12:22:30</a>
                         </span>
                     
                     
@@ -198,30 +198,13 @@
         </header>
 
         <div class="post-content">
-            <h3 id="下载代码"><a href="#下载代码" class="headerlink" title="下载代码"></a>下载代码</h3><ul>
-<li><p>从<a target="_blank" rel="noopener" href="https://www.iconfont.cn/">阿里iconfont</a>搜索找到想要的图标</p>
-</li>
-<li><p>选择将图标加入购物车</p>
-</li>
-<li><p>点击购物车选择下载代码</p>
-</li>
-</ul>
-<h3 id="解压代码"><a href="#解压代码" class="headerlink" title="解压代码"></a>解压代码</h3><ul>
-<li><p>解压下载的压缩包</p>
-</li>
-<li><p>首次链接，建议在<code>themes/Chic/source/fonts</code>里新建<code>/font_custom</code>，把解压好的压缩包扔在里面（也可以自定义文件夹名称，或者直接扔在<code>themes/Chic/source/fonts</code>里）</p>
-</li>
-</ul>
-<h3 id="修改文件"><a href="#修改文件" class="headerlink" title="修改文件"></a>修改文件</h3><ul>
-<li><p>在<code>themes/Chic/source/css/style.styl</code>里修改文件，在<code>//icon</code>下加入代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;如果把压缩包扔在font_custom里</span><br><span class="line">@import &quot;..&#x2F;fonts&#x2F;font_custom&#x2F;iconfont.css&quot;</span><br><span class="line">&#x2F;&#x2F;如果压缩包在fonts里</span><br><span class="line">@import &quot;..&#x2F;fonts&#x2F;iconfont.css&quot;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h3 id="查找图标名"><a href="#查找图标名" class="headerlink" title="查找图标名"></a>查找图标名</h3><ul>
-<li>打开压缩包里的<code>iconfont.css</code>查看图标名称</li>
-</ul>
-<h3 id="添加内容"><a href="#添加内容" class="headerlink" title="添加内容"></a>添加内容</h3><ul>
-<li>打开<code>themes/Chic/_config.yml</code>中添加内容即可</li>
-</ul>
+            <p>图床是用来存放图片的服务器，将图片存在图床里，生存一个图片的url。可以减小Blog的体积，如果挂载CDN还可以增加Blog的加载速度。</p>
+<p>我是用的是<a target="_blank" rel="noopener" href="http://www.github.com/">GitHub</a>+<a target="_blank" rel="noopener" href="https://github.com/Molunerfinn/PicGo">picGo</a>方案：</p>
+<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>首先去GitHub新建一个repository，并在setting里获取token（记得保存，token只会生成一次）。</p>
+<p>下载并安装picGo，选择图床，复制repository和token进去。</p>
+<p>配置完成。</p>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p>选择上传图片到图床。</p>
+<p>上传完成后，picGo会生成图片链接，复制粘贴即可（picGo可以自动生成如markdown，html等格式）</p>
 <p>&nbsp;&nbsp;</p>
 <p>&nbsp;&nbsp;</p>
 <hr>
@@ -248,10 +231,8 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2021/04/03/%E4%B8%BABlog%E6%B7%BB%E5%8A%A0%E5%9B%BE%E5%BA%8A/">为Blog添加图床</a>
             
-            
-            <a class="next" rel="next" href="/2021/03/31/code-server/">近期折腾code-server的记录</a>
+            <a class="next" rel="next" href="/2021/04/03/cuctom_icon/">如何在Chic主题的首页添加自定义图标</a>
             
         </section>
 
