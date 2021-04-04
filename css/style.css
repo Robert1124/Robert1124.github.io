@@ -1767,3 +1767,12 @@ header label {
 .post-content pre .javascript .function {
   color: #8959a8;
 }
+.dark-theme .post-content figure,
+.dark-theme .post-content figure.highlight .code pre {
+  background-color: #3e3e3e;
+  color: $dark-mode-pre-foreground-color;
+}
+.dark-theme .post-content figure.highlight .gutter pre {
+  background-color: #3e3e3e;
+  color: $dark-mode-pre-line-number-foreground-color;
+}
