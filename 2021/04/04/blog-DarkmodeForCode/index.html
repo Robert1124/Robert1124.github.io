@@ -12,7 +12,7 @@
 
 
 
-<title>Categories | Robert&#39;s Homepage</title>
+<title>Hexo 使代码块支持Dark模式 | Robert&#39;s Homepage</title>
 
 
 
@@ -307,161 +307,89 @@
     }
 </script>
         <div class="main">
+            <div class="container">
+    
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">Hexo 使代码块支持Dark模式</h1>
             
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Robert Wu</a>
+                    
 
+                    
+                        <span class="post-time">
+                        Date: <a href="#">April 4, 2021&nbsp;&nbsp;23:20:12</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/Blog%E7%9B%B8%E5%85%B3/">Blog相关</a>
+                            
+                        </span>
+                    
+                    
+                        <span class="post-count">
+                    Words:
+                        <a href="">126</a>  
+                        </span>
+                    
+                    
+                        <span class="post-count">
+                    Time:
+                        <a href="">1min</a>  
+                        </span>
+                    
+                </div>
+            
+        </header>
 
+        <div class="post-content">
+            <p>我使用的Chic主题对于dark模式有很好的支持，但对于代码块并没有支持。</p>
+<p>感谢<a target="_blank" rel="noopener" href="https://github.com/starkshaw">starkshaw</a>提供的解决办法。</p>
+<p>打开<code>/themes/Chic/source/css/custom.styl</code>并在里面添加如下代码即可：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Dark mode for pre</span></span><br><span class="line"><span class="selector-class">.dark-theme</span> <span class="selector-class">.post-content</span> <span class="selector-tag">figure</span>,</span><br><span class="line"><span class="selector-class">.dark-theme</span> <span class="selector-class">.post-content</span> <span class="selector-tag">figure</span><span class="selector-class">.highlight</span> <span class="selector-class">.code</span> pre &#123;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="variable">$dark</span>-post-blockquote-background-color;</span><br><span class="line">    <span class="attribute">color</span>: <span class="variable">$dark</span>-mode-pre-foreground-color;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Dark mode for pre line number</span></span><br><span class="line"><span class="selector-class">.dark-theme</span> <span class="selector-class">.post-content</span> <span class="selector-tag">figure</span><span class="selector-class">.highlight</span> <span class="selector-class">.gutter</span> pre &#123;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="variable">$dark</span>-post-blockquote-background-color;</span><br><span class="line">    <span class="attribute">color</span>: <span class="variable">$dark</span>-mode-pre-line-number-foreground-color;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-    <div class="container">
-        <div class="post-wrap categories">
-            <h2 class="post-title">-&nbsp;Categories&nbsp;-</h2>
-            <div class="categories-card">
-                
-                    
-                    <div class="card-item">
-                        <div class="categories">
-                            <a href="/categories/Blog%E7%9B%B8%E5%85%B3/">
-                                <h3>
-                                    <i class="iconfont icon-category" style="padding-right:3px"></i>
-                                    Blog相关
-                                </h3>
-                            </a>
-                            
-                                
-                                
-                                    <article class="archive-item">
-                                        <a class="archive-item-link"
-                                           href="/2021/04/03/blog-Image%20Hosting%20Service/">为Blog添加图床</a>
-                                    </article>
-                                
-                            
-                                
-                                
-                                    <article class="archive-item">
-                                        <a class="archive-item-link"
-                                           href="/2021/04/03/cuctom_icon/">如何在Chic主题的首页添加自定义图标</a>
-                                    </article>
-                                
-                            
-                                
-                                
-                                    <article class="archive-item">
-                                        <a class="archive-item-link"
-                                           href="/2021/04/04/blog-search/">Hexo 为博客添加搜索功能</a>
-                                    </article>
-                                
-                            
-                                
-                                
-                                    <article class="archive-item">
-                                        <a class="archive-item-link"
-                                           href="/2021/04/04/blog-DarkmodeForCode/">Hexo 使代码块支持Dark模式</a>
-                                    </article>
-                                
-                            
-                            
-                        </div>
-                    </div>
-                
-                    
-                    <div class="card-item">
-                        <div class="categories">
-                            <a href="/categories/%E6%8A%98%E8%85%BE%E8%AE%B0%E5%BD%95/">
-                                <h3>
-                                    <i class="iconfont icon-category" style="padding-right:3px"></i>
-                                    折腾记录
-                                </h3>
-                            </a>
-                            
-                                
-                                
-                                    <article class="archive-item">
-                                        <a class="archive-item-link"
-                                           href="/2021/03/31/code-server/">近期折腾code-server的记录</a>
-                                    </article>
-                                
-                            
-                            
-                        </div>
-                    </div>
-                
-                    
-                    <div class="card-item">
-                        <div class="categories">
-                            <a href="/categories/java%E5%9F%BA%E7%A1%80%E9%9A%8F%E7%AC%94/">
-                                <h3>
-                                    <i class="iconfont icon-category" style="padding-right:3px"></i>
-                                    java基础随笔
-                                </h3>
-                            </a>
-                            
-                                
-                                
-                                    <article class="archive-item">
-                                        <a class="archive-item-link"
-                                           href="/2021/04/03/java-fileIO/">Java基础-文件的读写</a>
-                                    </article>
-                                
-                            
-                            
-                        </div>
-                    </div>
-                
-                    
-                    <div class="card-item">
-                        <div class="categories">
-                            <a href="/categories/talkings/">
-                                <h3>
-                                    <i class="iconfont icon-category" style="padding-right:3px"></i>
-                                    talkings
-                                </h3>
-                            </a>
-                            
-                                
-                                
-                                    <article class="archive-item">
-                                        <a class="archive-item-link"
-                                           href="/2021/03/31/hello-world/">Hello World</a>
-                                    </article>
-                                
-                            
-                                
-                                
-                                    <article class="archive-item">
-                                        <a class="archive-item-link"
-                                           href="/2021/04/03/blog-wordCounting_and_readingTime/">Hexo 添加文章字数和阅读时长</a>
-                                    </article>
-                                
-                            
-                            
-                        </div>
-                    </div>
-                
-                    
-                    <div class="card-item">
-                        <div class="categories">
-                            <a href="/categories/talkings/Blog%E7%9B%B8%E5%85%B3/">
-                                <h3>
-                                    <i class="iconfont icon-category" style="padding-right:3px"></i>
-                                    Blog相关
-                                </h3>
-                            </a>
-                            
-                                
-                                
-                                    <article class="archive-item">
-                                        <a class="archive-item-link"
-                                           href="/2021/04/03/blog-wordCounting_and_readingTime/">Hexo 添加文章字数和阅读时长</a>
-                                    </article>
-                                
-                            
-                            
-                        </div>
-                    </div>
-                
-            </div>
+<p>&nbsp;&nbsp;</p>
+<p>&nbsp;&nbsp;</p>
+<hr>
 
         </div>
-    </div>
+
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/%E6%95%99%E7%A8%8B/">  #教程</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+            
+            <a class="next" rel="next" href="/2021/04/04/blog-search/">Hexo 为博客添加搜索功能</a>
+            
+        </section>
+
+
+    </article>
+</div>
 
         </div>
         <footer id="footer" class="footer">
