@@ -12,11 +12,11 @@
 
 
 
-<title>为Blog添加图床 | Robert&#39;s Homepage</title>
+<title>使用CDN为blog加速 | Robert&#39;s Homepage</title>
 
 
 
-    <link rel="icon" href="https://raw.githubusercontent.com/Robert1124/image/master/PicGo/favicon.ico">
+    <link rel="icon" href="https://cdn.jsdelivr.net/gh/Robert1124/image/PicGo/favicon.ico">
 
 
 
@@ -376,7 +376,7 @@
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">为Blog添加图床</h1>
+            <h1 class="post-title">使用CDN为blog加速</h1>
             
                 <div class="post-meta">
                     
@@ -385,7 +385,7 @@
 
                     
                         <span class="post-time">
-                        Date: <a href="#">April 3, 2021&nbsp;&nbsp;12:22:30</a>
+                        Date: <a href="#">April 6, 2021&nbsp;&nbsp;3:04:59</a>
                         </span>
                     
                     
@@ -399,7 +399,7 @@
                     
                         <span class="post-count">
                     Words:
-                        <a href="">154</a>  
+                        <a href="">493</a>  
                         </span>
                     
                     
@@ -413,13 +413,25 @@
         </header>
 
         <div class="post-content">
-            <p>图床是用来存放图片的服务器，将图片存在图床里，生存一个图片的url。可以减小Blog的体积，如果挂载CDN还可以增加Blog的加载速度。</p>
-<p>我是用的是<a target="_blank" rel="noopener" href="http://www.github.com/">GitHub</a>+<a target="_blank" rel="noopener" href="https://github.com/Molunerfinn/PicGo">picGo</a>方案：</p>
-<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>首先去GitHub新建一个repository，并在setting里获取token（记得保存，token只会生成一次）。</p>
-<p>下载并安装picGo，选择图床，复制repository和token进去。</p>
-<p>配置完成。</p>
-<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p>选择上传图片到图床。</p>
-<p>上传完成后，picGo会生成图片链接，复制粘贴即可（picGo可以自动生成如markdown，html等格式）</p>
+            <p>CDN可以提供加速访问。CDN的全称是Content Delivery Network，即内容分发网络。CDN是构建在现有网络基础之上的智能虚拟网络，依靠部署在各地的边缘服务器，通过中心平台的负载均衡、内容分发、调度等功能模块，使用户就近获取所需内容，降低网络拥塞，提高用户访问响应速度和命中率。CDN的关键技术主要有内容存储和分发技术。</p>
+<p>目前较为好用且免费的CDN有jsDelivr和Cloudflare。</p>
+<p>由于我的Blog是部署在GitHub上（包括博客内容和图床），所以在国内的访问速度受限。于是使用Cloudflare进行加速。此处只是加速博客内容，图床部分计划用jsDelivr加速。</p>
+<h3 id="加速全站"><a href="#加速全站" class="headerlink" title="加速全站"></a>加速全站</h3><p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844904122353713165">Cloudflare加速博客内容</a></p>
+<p>因为我使用的是namecheap的域名，所以在DNS配置部分需要参照<a target="_blank" rel="noopener" href="https://www.namecheap.com/support/knowledgebase/article.aspx/9607/2210/how-to-set-up-dns-records-for-your-domain-in-cloudflare-account/">这里</a>，不同的域名供应商方法不同，具体请善用搜索引擎。</p>
+<h3 id="加速图床"><a href="#加速图床" class="headerlink" title="加速图床"></a>加速图床</h3><p><a target="_blank" rel="noopener" href="https://bili33.top/2020/02/08/jsDelivr-Usage/">使用jsDelivr加速GitHub图床</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.jsdelivr.com/">jsDelivr官网</a></p>
+<p>官方给的格式为：</p>
+<p><code>https://cdn.jsdelivr.net/gh/&lt;username&gt;/&lt;repo-name&gt;@&lt;version&gt;/&lt;path&gt;</code></p>
+<p>&nbsp;&nbsp;</p>
+<p>踩过一个坑，在发布完release过后，将文件目录甩到jsDelivr官网给我返回如下链接：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Robert1124/image/PicGo/jsDelivr.png"></p>
+<p>这个链接并不是可用的，请对照上面的官方格式自己填写，可以在<a target="_blank" rel="noopener" href="https://typora.io/">Typora</a>里讲链接粘贴尝试是否能加载出图片。</p>
+<h3 id="附言"><a href="#附言" class="headerlink" title="附言"></a>附言</h3><p>我在写这篇博客的时候发现，如果做出release，比如1.0，我上图的引用链接将会是</p>
+<p><code>https://cdn.jsdelivr.net/gh/Robert1124/image@1.0/PicGo/jsDelivr.png</code></p>
+<p>但如果在这次release发布之后我再次上传图片，继续用这个格式</p>
+<p><code>https://cdn.jsdelivr.net/gh/Robert1124/image@1.0/PicGo/</code>将无法访问新图片。</p>
+<p>这时候我们可以不用release，直接用如下链接来访问。</p>
+<p><code>https://cdn.jsdelivr.net/gh/Robert1124/image/PicGo/</code></p>
 <p>&nbsp;&nbsp;</p>
 <p>&nbsp;&nbsp;</p>
 <hr>
@@ -435,6 +447,8 @@
                     
                         <a href="/tags/%E6%95%99%E7%A8%8B/">  #教程</a>
                     
+                        <a href="/tags/talkings/">  #talkings</a>
+                    
                         
                 </span>
             </div>
@@ -446,10 +460,8 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2021/04/03/java-fileIO/">Java基础-文件的读写</a>
             
-            
-            <a class="next" rel="next" href="/2021/04/03/cuctom_icon/">如何在Chic主题的首页添加自定义图标</a>
+            <a class="next" rel="next" href="/2021/04/06/blog-reptile/">为Blog提交搜索引擎收录</a>
             
         </section>
         

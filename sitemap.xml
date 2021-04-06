@@ -2,9 +2,44 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://home.robertw.me/2021/04/06/blog-cloudflare/</loc>
+    <loc>https://home.robertw.me/2021/04/06/blog-CDN/</loc>
     
-    <lastmod>2021-04-05</lastmod>
+    <lastmod>2021-04-06</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://home.robertw.me/2021/04/03/java-fileIO/</loc>
+    
+    <lastmod>2021-04-06</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://home.robertw.me/2021/04/03/blog-Image_Hosting_Service/</loc>
+    
+    <lastmod>2021-04-06</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://home.robertw.me/2021/03/31/code-server/</loc>
+    
+    <lastmod>2021-04-06</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://home.robertw.me/about/index.html</loc>
+    
+    <lastmod>2021-04-06</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://home.robertw.me/2021/04/03/blog-wordCounting_and_readingTime/</loc>
+    
+    <lastmod>2021-04-06</lastmod>
     
   </url>
   
@@ -37,44 +72,9 @@
   </url>
   
   <url>
-    <loc>https://home.robertw.me/2021/04/03/blog-wordCounting_and_readingTime/</loc>
-    
-    <lastmod>2021-04-03</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://home.robertw.me/2021/03/31/code-server/</loc>
-    
-    <lastmod>2021-04-03</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://home.robertw.me/2021/04/03/java-fileIO/</loc>
-    
-    <lastmod>2021-04-03</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://home.robertw.me/2021/04/03/blog-Image%20Hosting%20Service/</loc>
-    
-    <lastmod>2021-04-03</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://home.robertw.me/2021/04/03/cuctom_icon/</loc>
     
     <lastmod>2021-04-03</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://home.robertw.me/about/index.html</loc>
-    
-    <lastmod>2021-04-02</lastmod>
     
   </url>
   
@@ -102,7 +102,7 @@
 
   <url>
     <loc>https://home.robertw.me/</loc>
-    <lastmod>2021-04-05</lastmod>
+    <lastmod>2021-04-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -110,35 +110,35 @@
   
   <url>
     <loc>https://home.robertw.me/tags/%E6%95%99%E7%A8%8B/</loc>
-    <lastmod>2021-04-05</lastmod>
+    <lastmod>2021-04-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://home.robertw.me/tags/talkings/</loc>
-    <lastmod>2021-04-05</lastmod>
+    <lastmod>2021-04-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://home.robertw.me/tags/%E8%BD%AC%E8%BD%BD/</loc>
-    <lastmod>2021-04-05</lastmod>
+    <lastmod>2021-04-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://home.robertw.me/tags/code-server/</loc>
-    <lastmod>2021-04-05</lastmod>
+    <lastmod>2021-04-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://home.robertw.me/tags/java/</loc>
-    <lastmod>2021-04-05</lastmod>
+    <lastmod>2021-04-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
@@ -147,35 +147,28 @@
   
   <url>
     <loc>https://home.robertw.me/categories/Blog%E7%9B%B8%E5%85%B3/</loc>
-    <lastmod>2021-04-05</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://home.robertw.me/categories/talkings/</loc>
-    <lastmod>2021-04-05</lastmod>
+    <lastmod>2021-04-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://home.robertw.me/categories/%E6%8A%98%E8%85%BE%E8%AE%B0%E5%BD%95/</loc>
-    <lastmod>2021-04-05</lastmod>
+    <lastmod>2021-04-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://home.robertw.me/categories/talkings/Blog%E7%9B%B8%E5%85%B3/</loc>
-    <lastmod>2021-04-05</lastmod>
+    <loc>https://home.robertw.me/categories/talkings/</loc>
+    <lastmod>2021-04-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://home.robertw.me/categories/java%E5%9F%BA%E7%A1%80%E9%9A%8F%E7%AC%94/</loc>
-    <lastmod>2021-04-05</lastmod>
+    <lastmod>2021-04-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>

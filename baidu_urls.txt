@@ -1,11 +1,11 @@
-https://home.robertw.me/2021/04/06/blog-cloudflare/
+https://home.robertw.me/2021/04/06/blog-CDN/
 https://home.robertw.me/2021/04/06/blog-reptile/
 https://home.robertw.me/2021/04/05/blog-disqus/
 https://home.robertw.me/2021/04/04/blog-DarkmodeForCode/
 https://home.robertw.me/2021/04/04/blog-search/
 https://home.robertw.me/2021/04/03/blog-wordCounting_and_readingTime/
 https://home.robertw.me/2021/04/03/java-fileIO/
-https://home.robertw.me/2021/04/03/blog-Image%20Hosting%20Service/
+https://home.robertw.me/2021/04/03/blog-Image_Hosting_Service/
 https://home.robertw.me/2021/04/03/cuctom_icon/
 https://home.robertw.me/2021/03/31/code-server/
 https://home.robertw.me/2021/03/31/hello-world/
