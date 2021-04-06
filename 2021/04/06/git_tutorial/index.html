@@ -12,7 +12,7 @@
 
 
 
-<title>使用CDN为blog加速 | Robert&#39;s Homepage</title>
+<title>Git入门 | Robert&#39;s Homepage</title>
 
 
 
@@ -376,7 +376,7 @@
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">使用CDN为blog加速</h1>
+            <h1 class="post-title">Git入门</h1>
             
                 <div class="post-meta">
                     
@@ -385,27 +385,27 @@
 
                     
                         <span class="post-time">
-                        Date: <a href="#">April 6, 2021&nbsp;&nbsp;3:04:59</a>
+                        Date: <a href="#">April 6, 2021&nbsp;&nbsp;14:25:35</a>
                         </span>
                     
                     
                         <span class="post-category">
                     Category:
                             
-                                <a href="/categories/Blog%E7%9B%B8%E5%85%B3/">Blog相关</a>
+                                <a href="/categories/talkings/">talkings</a>
                             
                         </span>
                     
                     
                         <span class="post-count">
                     Words:
-                        <a href="">493</a>  
+                        <a href="">1.7k</a>  
                         </span>
                     
                     
                         <span class="post-count">
                     Time:
-                        <a href="">1min</a>  
+                        <a href="">6min</a>  
                         </span>
                     
                 </div>
@@ -413,25 +413,121 @@
         </header>
 
         <div class="post-content">
-            <p>CDN可以提供加速访问。CDN的全称是Content Delivery Network，即内容分发网络。CDN是构建在现有网络基础之上的智能虚拟网络，依靠部署在各地的边缘服务器，通过中心平台的负载均衡、内容分发、调度等功能模块，使用户就近获取所需内容，降低网络拥塞，提高用户访问响应速度和命中率。CDN的关键技术主要有内容存储和分发技术。</p>
-<p>目前较为好用且免费的CDN有jsDelivr和Cloudflare。</p>
-<p>由于我的Blog是部署在GitHub上（包括博客内容和图床），所以在国内的访问速度受限。于是使用Cloudflare进行加速。此处只是加速博客内容，图床部分计划用jsDelivr加速。</p>
-<h3 id="加速全站"><a href="#加速全站" class="headerlink" title="加速全站"></a>加速全站</h3><p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844904122353713165">Cloudflare加速博客内容</a></p>
-<p>因为我使用的是namecheap的域名，所以在DNS配置部分需要参照<a target="_blank" rel="noopener" href="https://www.namecheap.com/support/knowledgebase/article.aspx/9607/2210/how-to-set-up-dns-records-for-your-domain-in-cloudflare-account/">这里</a>，不同的域名供应商方法不同，具体请善用搜索引擎。</p>
-<h3 id="加速图床"><a href="#加速图床" class="headerlink" title="加速图床"></a>加速图床</h3><p><a target="_blank" rel="noopener" href="https://bili33.top/2020/02/08/jsDelivr-Usage/">使用jsDelivr加速GitHub图床</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.jsdelivr.com/">jsDelivr官网</a></p>
-<p>官方给的格式为：</p>
-<p><code>https://cdn.jsdelivr.net/gh/&lt;username&gt;/&lt;repo-name&gt;@&lt;version&gt;/&lt;path&gt;</code></p>
-<p>&nbsp;&nbsp;</p>
-<p>踩过一个坑，在发布完release过后，将文件目录甩到jsDelivr官网给我返回如下链接：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Robert1124/image/PicGo/jsDelivr.png"></p>
-<p>这个链接并不是可用的，请对照上面的官方格式自己填写，可以在<a target="_blank" rel="noopener" href="https://typora.io/">Typora</a>里讲链接粘贴尝试是否能加载出图片。</p>
-<h3 id="附言"><a href="#附言" class="headerlink" title="附言"></a>附言</h3><p>我在写这篇博客的时候发现，如果做出release，比如1.0，我上图的引用链接将会是</p>
-<p><code>https://cdn.jsdelivr.net/gh/Robert1124/image@1.0/PicGo/jsDelivr.png</code></p>
-<p>但如果在这次release发布之后我再次上传图片，继续用这个格式</p>
-<p><code>https://cdn.jsdelivr.net/gh/Robert1124/image@1.0/PicGo/</code>将无法访问新图片。</p>
-<p>这时候我们可以不用release，直接用如下链接来访问。</p>
-<p><code>https://cdn.jsdelivr.net/gh/Robert1124/image/PicGo/</code></p>
+            <p><a target="_blank" rel="noopener" href="https://git-scm.com/">Git</a> 是一个开源的分布式版本控制系统(version-control system)，用于敏捷高效地处理任何或小或大的项目。在学习工作的内容深入之后，Git将会是一个不可避免，十分有用的工具。常用的托管平台有：<a target="_blank" rel="noopener" href="https://github.com/">GitHub</a>，<a target="_blank" rel="noopener" href="https://gitlab.com/">Gitlab</a>，<a target="_blank" rel="noopener" href="https://bitbucket.org/product/">Bitbucket</a>等。由于Git的使用大同小异，在这里以GitHub为例。</p>
+<p>本次教程提供基础教学，即全部为terminal指令，旨在让初学者对于git有更深刻的理解，常用的高级编译器可以一键完成commit，push，pull等指令。</p>
+<h3 id="安装环境"><a href="#安装环境" class="headerlink" title="安装环境"></a>安装环境</h3><p>这里只提供Mac OS的教程参考。其他平台请善用搜索引擎。</p>
+<h4 id="安装homebrew包管理器"><a href="#安装homebrew包管理器" class="headerlink" title="安装homebrew包管理器"></a>安装homebrew包管理器</h4><p><a target="_blank" rel="noopener" href="https://brew.sh/">Homebrew</a>是一款Mac OS平台下的软件包管理工具，拥有安装、卸载、更新、查看、搜索等很多实用的功能。简单的一条指令，就可以实现包管理，而不用你关心各种依赖和文件路径的情况，十分方便快捷。</p>
+<ol>
+<li>打开terminal：</li>
+</ol>
+<p><img src="https://cdn.jsdelivr.net/gh/Robert1124/image/PicGo/git-terminal.png"></p>
+<ol start="2">
+<li><p>在terminal中键入指令按照homebrew包管理器：</p>
+<p><code>/bin/bash -c &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&quot;</code></p>
+<p>特别注意的是，这里安装homebrew是使用GitHub的方式，在国内需要科学上网。</p>
+</li>
+<li><p>安装完成后键入<code>brew --version</code>，如果显示版本号，即安装成功。</p>
+</li>
+</ol>
+<p><img src="https://cdn.jsdelivr.net/gh/Robert1124/image/PicGo/git-brew.png"></p>
+<h4 id="利用homebrew安装git"><a href="#利用homebrew安装git" class="headerlink" title="利用homebrew安装git"></a>利用homebrew安装git</h4><ol>
+<li>在terminal中输入<code>brew install git</code>来安装git。</li>
+<li>进度条跑完后，键入<code>git --version</code>，如果显示版本号，即安装成功。</li>
+</ol>
+<p><img src="https://cdn.jsdelivr.net/gh/Robert1124/image/PicGo/git-version.png"></p>
+<h4 id="配置git账号"><a href="#配置git账号" class="headerlink" title="配置git账号"></a>配置git账号</h4><p>如果没有git托管平台的账号，请自行注册。这次教程以GitHub举例，我填的是自己的GitHub账号。</p>
+<p>在terminal中输入<code>git config user.name yourname</code>和<code>git config user.email yourEmail</code>来配置git账号。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Robert1124/image/PicGo/git-config.png"></p>
+<h3 id="仓库的建立或选择"><a href="#仓库的建立或选择" class="headerlink" title="仓库的建立或选择"></a>仓库的建立或选择</h3><p>对于一个项目，按需求可以自己新建仓库或是选择自己想要的项目进行fork操作。</p>
+<h4 id="在GitHub自建仓库（repository）"><a href="#在GitHub自建仓库（repository）" class="headerlink" title="在GitHub自建仓库（repository）"></a>在GitHub自建仓库（repository）</h4><ol>
+<li>打开<a target="_blank" rel="noopener" href="https://github.com/">GitHub</a>，登录账号</li>
+<li>在主页中点击右上角➕选择new repository</li>
+<li>自行设置仓库名和初始化选项</li>
+</ol>
+<p><img src="https://cdn.jsdelivr.net/gh/Robert1124/image/PicGo/git-new_repository.png"></p>
+<ol start="5">
+<li><p>关于初始化选项（为可选项，可以都不勾选，只填repository name即可完成最基础的仓库建立）：</p>
+<ul>
+<li><p>README file是对于这个仓库/项目的解释性文件，为<a target="_blank" rel="noopener" href="https://www.markdownguide.org/">markdown</a>格式，可以在初始化时建立，或按需求自行后期添加。</p>
+</li>
+<li><p>.gitignore会在附言提及。</p>
+</li>
+</ul>
+</li>
+</ol>
+<h4 id="fork一个已存在项目"><a href="#fork一个已存在项目" class="headerlink" title="fork一个已存在项目"></a>fork一个已存在项目</h4><p>这里以<a target="_blank" rel="noopener" href="https://github.com/Homebrew/brew">homebrew的项目</a>为例进行fork操作。</p>
+<ol>
+<li>点击项目界面右上角的fork按钮，即会生成一个fork好的子项目</li>
+</ol>
+<p><img src="https://cdn.jsdelivr.net/gh/Robert1124/image/PicGo/git-fork.png"></p>
+<h3 id="将远端项目clone到本地"><a href="#将远端项目clone到本地" class="headerlink" title="将远端项目clone到本地"></a>将远端项目clone到本地</h3><p>无论我们是新建了自己的仓库还是fork了别人的仓库，完成之后，在项目界面有一个绿色的Code标志。</p>
+<p>（对于clone的常用操作有两种，https和ssh，为了方便初学者学习，我们介绍https方式）</p>
+<ol>
+<li>点击绿色Code标志</li>
+</ol>
+<p><img src="https://cdn.jsdelivr.net/gh/Robert1124/image/PicGo/git-httpsClone.png"></p>
+<ol start="2">
+<li>点击下方链接右侧的复制按钮，将链接复制到剪切板</li>
+<li>打开terminal，输入<code>git clone </code>之后，cmd+v粘贴剪切板中网址到terminal</li>
+</ol>
+<p><img src="https://cdn.jsdelivr.net/gh/Robert1124/image/PicGo/git-terminalClone.png"></p>
+<ol start="4">
+<li><p>敲击回车，开始clone，可能在过程中需要填写git托管平台密码，需要注意的是此处密码不会显示，直接键入然后敲击回车即可。</p>
+<p>clone完成会有如下显示：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Robert1124/image/PicGo/git-cloneSuccess.png"></p>
+</li>
+<li><p>此时可以用文件管理器打开clone下来的文件夹，使用你喜欢的IDE进行编辑或更改。</p>
+</li>
+</ol>
+<h3 id="上传更改到远端仓库"><a href="#上传更改到远端仓库" class="headerlink" title="上传更改到远端仓库"></a>上传更改到远端仓库</h3><p>编辑内容完成后，将更改的内容上传到远端仓库（repository）。</p>
+<p>步骤大致为：将更改加入暂存区 -&gt; 提交暂存区到本地仓库 -&gt; 将本地仓库上传到远端仓库</p>
+<p>（git提供了不同的分支版本的功能，对于初学者，这个功能不常用且容易犯错，故不提及）</p>
+<ol>
+<li>在terminal里通过<code>cd</code>命令进入clone下来的文件夹，上文例子中为<code>brew</code>文件夹，则指令为<code>cd brew</code></li>
+</ol>
+<p><img src="https://cdn.jsdelivr.net/gh/Robert1124/image/PicGo/git-cd.png"></p>
+<p>​    我们可以注意到此时<code>%</code>左侧显示出了我们现在所在的文件目录为<code>brew</code>，即进入成功。</p>
+<ol start="2">
+<li>使用指令<code>git add .</code>将所做更改加入暂存区</li>
+</ol>
+<p><img src="https://cdn.jsdelivr.net/gh/Robert1124/image/PicGo/git-add.png"></p>
+<ol start="3">
+<li><p>使用指令<code>git commit -m &quot;commit_message&quot;</code>将暂存区提交到本地仓库</p>
+<p>commit_message即为对于这个更改所做的备注，自由填写</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Robert1124/image/PicGo/git-commit.png"></p>
+</li>
+<li><p>使用指令<code>git push --all</code>将本地仓库提交给远端仓库</p>
+</li>
+<li><p>提交完成后即可回到GitHub的repository界面看到刚刚提交的内容了</p>
+</li>
+</ol>
+<h3 id="从远端仓库更新到本地"><a href="#从远端仓库更新到本地" class="headerlink" title="从远端仓库更新到本地"></a>从远端仓库更新到本地</h3><p>在文件目录使用<code>git pull</code>指令即可。</p>
+<h3 id="回退git版本"><a href="#回退git版本" class="headerlink" title="回退git版本"></a>回退git版本</h3><p>首先回退版本</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset HEAD^            # 回退所有内容到上一个版本 </span><br></pre></td></tr></table></figure>
+
+<p>之后再做一次上传到远端仓库操作即可</p>
+<p>注意：这个操作只是回退状态，并没有删除commit记录</p>
+<h3 id="附言"><a href="#附言" class="headerlink" title="附言"></a>附言</h3><h4 id="关于-gitignore文件（此部分为转载，原帖，原作者：Foxerless）"><a href="#关于-gitignore文件（此部分为转载，原帖，原作者：Foxerless）" class="headerlink" title="关于.gitignore文件（此部分为转载，原帖，原作者：Foxerless）"></a>关于.gitignore文件（此部分为转载，<a target="_blank" rel="noopener" href="https://www.foxerlee.top/2018/03/12/git%20%E5%BF%BD%E7%95%A5%E8%A7%84%E5%88%99%E5%92%8C.%20gitignore%20%E6%96%87%E4%BB%B6/">原帖</a>，原作者：<a target="_blank" rel="noopener" href="https://www.foxerlee.top/">Foxerless</a>）</h4><ol>
+<li><p>什么是.gitignore文件</p>
+<p>在使用git作代码管理的时候，可能会遇到这样的一些特殊文件：如大文件、涉及到Key的一些文件、编译过程中的中间文件等等。</p>
+<p>这些文件通常我们不想提交到远程仓库，但是却又都放在同一个文件夹下面。</p>
+<p>这时候，就需要用到我们的.gitignore文件了。</p>
+<p>.gitignore文件的作用就在于过滤文件，将一些我们不希望被追踪管理的文件忽略。</p>
+</li>
+<li><p>如何使用.gitignore文件</p>
+<p>首先我们需要创建一个.gitignore文件。方法如下：</p>
+<ul>
+<li>在远程仓库建立时候自动创建，再pull到本地。</li>
+<li>首先cd到对应的文件夹，然后命令行输入 vim .gitignore</li>
+</ul>
+<p>具体使用规则：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"># 此为注释 – 将被 Git 忽略，可以解释为什么要忽略这些文件</span><br><span class="line"></span><br><span class="line"># 忽略所有 .sample 结尾的文件</span><br><span class="line">*.sample</span><br><span class="line"># 但 lib.sample 除外</span><br><span class="line">!lib.sample 　　</span><br><span class="line"></span><br><span class="line"># 仅仅忽略项目根目录下的 TODO 文件，不包括子文件夹中的 TODO 文件</span><br><span class="line">&#x2F;TODO</span><br><span class="line"></span><br><span class="line"># 忽略 build&#x2F; 目录下的所有文件</span><br><span class="line">build&#x2F; 　　 </span><br><span class="line"></span><br><span class="line"># 会忽略 doc&#x2F;*.txt 但不包括doc&#x2F;subdir&#x2F;*.txt</span><br><span class="line"># 即只忽略当前目录下的.txt文件，不忽略子目录的.txt文件</span><br><span class="line">doc&#x2F;*.txt 　</span><br></pre></td></tr></table></figure></li>
+<li><p>为什么.gitignore无效</p>
+<p>有时候我们会发现，在.gitignore中添加了忽略规则仍然无效，或者远程仓库已经有了一些不必要的文件。</p>
+<p>原因是.gitignore只能忽略那些原来没有被追踪的文件，如果某些文件已经被纳入了版本管理中，则修改.gitignore是无效的。</p>
+<p>解决方法就是先把本地缓存删除（改变成未被追踪状态），然后再提交。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"># 将所用.jpg文件版本管理中删除</span><br><span class="line">git rm -r --cached *.jpg*</span><br><span class="line"># 或者直接将所有文件都从版本管理中删除</span><br><span class="line">git rm -r --cached .</span><br><span class="line"></span><br><span class="line"># 重新添加</span><br><span class="line">git add .</span><br><span class="line"></span><br><span class="line"># 提交新的版本</span><br><span class="line">git commit -m &#39;update .gitignore&#39;</span><br><span class="line"></span><br><span class="line"># 推到远程仓库</span><br><span class="line">git push origin master</span><br></pre></td></tr></table></figure></li>
+</ol>
 <p>&nbsp;&nbsp;</p>
 <p>&nbsp;&nbsp;</p>
 <hr>
@@ -460,10 +556,8 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2021/04/06/git_tutorial/">Git入门</a>
             
-            
-            <a class="next" rel="next" href="/2021/04/06/blog-reptile/">为Blog提交搜索引擎收录</a>
+            <a class="next" rel="next" href="/2021/04/06/blog-CDN/">使用CDN为blog加速</a>
             
         </section>
         
