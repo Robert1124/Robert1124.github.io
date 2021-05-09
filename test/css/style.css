@@ -24,7 +24,7 @@ body {
 }
 .header-image {
   height: 220px;
-  background-image: url(../pic.JPG);
+  background-image: url(https://cdn.jsdelivr.net/gh/Robert1124/image/PicGo/pic.jpg);
   background-size: cover;
   background-position: center;
   margin-bottom: 3rem;
