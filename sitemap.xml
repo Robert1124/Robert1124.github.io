@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://home.robertw.me/test/index.html</loc>
+    <loc>https://home.robertw.me/about/index.html</loc>
     
-    <lastmod>2021-05-09</lastmod>
+    <lastmod>2021-09-13</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://home.robertw.me/heart/index.html</loc>
+    
+    <lastmod>2021-09-13</lastmod>
     
   </url>
   
@@ -38,13 +45,6 @@
   
   <url>
     <loc>https://home.robertw.me/2021/03/31/code-server/</loc>
-    
-    <lastmod>2021-04-06</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://home.robertw.me/about/index.html</loc>
     
     <lastmod>2021-04-06</lastmod>
     
