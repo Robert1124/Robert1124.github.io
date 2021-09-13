@@ -8,6 +8,10 @@ body {
   font-family: 'Roboto Condensed', sans-serif;
   overflow: hidden;    
 }
+.box{ 
+  font-family:"Brush Script MT";
+  font-size: 2rem;
+}
 .mr2 {
   margin-right: 1rem;
 }
@@ -24,7 +28,7 @@ body {
 }
 .header-image {
   height: 220px;
-  background-image: url(https://cdn.jsdelivr.net/gh/Robert1124/image/PicGo/4EF669D3-0177-4347-8DCD-FC9E0B3FA561.jpeg);
+  background-image: url(https://cdn.jsdelivr.net/gh/Robert1124/image/PicGo/pic.jpg);
   background-size: cover;
   background-position: center;
   margin-bottom: 3rem;
