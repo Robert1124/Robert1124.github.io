@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Robert&#39;s Homepage</title>
+  
+  
+  <link href="https://home.robertw.me/atom.xml" rel="self"/>
+  
+  <link href="https://home.robertw.me/"/>
+  <updated>2021-04-06T07:38:15.048Z</updated>
+  <id>https://home.robertw.me/</id>
+  
+  <author>
+    <name>Robert Wu</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Git入门</title>
+    <link href="https://home.robertw.me/2021/04/06/git_tutorial/"/>
+    <id>https://home.robertw.me/2021/04/06/git_tutorial/</id>
+    <published>2021-04-06T06:25:35.936Z</published>
+    <updated>2021-04-06T07:38:15.048Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://git-scm.com/">Git</a> 是一个开源的分布式版本控制系统(version-control system)，用于敏捷高效地处理任何或小或大的项目。在学习工作的内容深入之后，Git将会是一个不可避免，十分有用的工具。常用的托管平台有：<a href="https://github.com/">GitHub</a>，<a href="https://gitlab.com/">Gitlab</a>，<a href="https://bitbucket.org/product/">Bitbucket</a>等。由于Git的使用大同小异，在这里以GitHub为例。</p><p>本次教程提供基础教学，即全部为terminal指令，旨在让初学者对于git有更深刻的理解，常用的高级编译器可以一键完成commit，push，pull等指令。</p><h3 id="安装环境"><a href="#安装环境" class="headerlink" title="安装环境"></a>安装环境</h3><p>这里只提供Mac OS的教程参考。其他平台请善用搜索引擎。</p><h4 id="安装homebrew包管理器"><a href="#安装homebrew包管理器" class="headerlink" title="安装homebrew包管理器"></a>安装homebrew包管理器</h4><p><a href="https://brew.sh/">Homebrew</a>是一款Mac OS平台下的软件包管理工具，拥有安装、卸载、更新、查看、搜索等很多实用的功能。简单的一条指令，就可以实现包管理，而不用你关心各种依赖和文件路径的情况，十分方便快捷。</p><ol><li>打开terminal：</li></ol><p><img src="https://cdn.jsdelivr.net/gh/Robert1124/image/PicGo/git-terminal.png"></p><ol start="2"><li><p>在terminal中键入指令按照homebrew包管理器：</p><p><code>/bin/bash -c &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&quot;</code></p><p>特别注意的是，这里安装homebrew是使用GitHub的方式，在国内需要科学上网。</p></li><li><p>安装完成后键入<code>brew --version</code>，如果显示版本号，即安装成功。</p></li></ol><p><img src="https://cdn.jsdelivr.net/gh/Robert1124/image/PicGo/git-brew.png"></p><h4 id="利用homebrew安装git"><a href="#利用homebrew安装git" class="headerlink" title="利用homebrew安装git"></a>利用homebrew安装git</h4><ol><li>在terminal中输入<code>brew install git</code>来安装git。</li><li>进度条跑完后，键入<code>git --version</code>，如果显示版本号，即安装成功。</li></ol><p><img src="https://cdn.jsdelivr.net/gh/Robert1124/image/PicGo/git-version.png"></p><h4 id="配置git账号"><a href="#配置git账号" class="headerlink" title="配置git账号"></a>配置git账号</h4><p>如果没有git托管平台的账号，请自行注册。这次教程以GitHub举例，我填的是自己的GitHub账号。</p><p>在terminal中输入<code>git config user.name yourname</code>和<code>git config user.email yourEmail</code>来配置git账号。</p><p><img src="https://cdn.jsdelivr.net/gh/Robert1124/image/PicGo/git-config.png"></p><h3 id="仓库的建立或选择"><a href="#仓库的建立或选择" class="headerlink" title="仓库的建立或选择"></a>仓库的建立或选择</h3><p>对于一个项目，按需求可以自己新建仓库或是选择自己想要的项目进行fork操作。</p><h4 id="在GitHub自建仓库（repository）"><a href="#在GitHub自建仓库（repository）" class="headerlink" title="在GitHub自建仓库（repository）"></a>在GitHub自建仓库（repository）</h4><ol><li>打开<a href="https://github.com/">GitHub</a>，登录账号</li><li>在主页中点击右上角➕选择new repository</li><li>自行设置仓库名和初始化选项</li></ol><p><img src="https://cdn.jsdelivr.net/gh/Robert1124/image/PicGo/git-new_repository.png"></p><ol start="5"><li><p>关于初始化选项（为可选项，可以都不勾选，只填repository name即可完成最基础的仓库建立）：</p><ul><li><p>README file是对于这个仓库/项目的解释性文件，为<a href="https://www.markdownguide.org/">markdown</a>格式，可以在初始化时建立，或按需求自行后期添加。</p></li><li><p>.gitignore会在附言提及。</p></li></ul></li></ol><h4 id="fork一个已存在项目"><a href="#fork一个已存在项目" class="headerlink" title="fork一个已存在项目"></a>fork一个已存在项目</h4><p>这里以<a href="https://github.com/Homebrew/brew">homebrew的项目</a>为例进行fork操作。</p><ol><li>点击项目界面右上角的fork按钮，即会生成一个fork好的子项目</li></ol><p><img src="https://cdn.jsdelivr.net/gh/Robert1124/image/PicGo/git-fork.png"></p><h3 id="将远端项目clone到本地"><a href="#将远端项目clone到本地" class="headerlink" title="将远端项目clone到本地"></a>将远端项目clone到本地</h3><p>无论我们是新建了自己的仓库还是fork了别人的仓库，完成之后，在项目界面有一个绿色的Code标志。</p><p>（对于clone的常用操作有两种，https和ssh，为了方便初学者学习，我们介绍https方式）</p><ol><li>点击绿色Code标志</li></ol><p><img src="https://cdn.jsdelivr.net/gh/Robert1124/image/PicGo/git-httpsClone.png"></p><ol start="2"><li>点击下方链接右侧的复制按钮，将链接复制到剪切板</li><li>打开terminal，输入<code>git clone </code>之后，cmd+v粘贴剪切板中网址到terminal</li></ol><p><img src="https://cdn.jsdelivr.net/gh/Robert1124/image/PicGo/git-terminalClone.png"></p><ol start="4"><li><p>敲击回车，开始clone，可能在过程中需要填写git托管平台密码，需要注意的是此处密码不会显示，直接键入然后敲击回车即可。</p><p>clone完成会有如下显示：</p><p><img src="https://cdn.jsdelivr.net/gh/Robert1124/image/PicGo/git-cloneSuccess.png"></p></li><li><p>此时可以用文件管理器打开clone下来的文件夹，使用你喜欢的IDE进行编辑或更改。</p></li></ol><h3 id="上传更改到远端仓库"><a href="#上传更改到远端仓库" class="headerlink" title="上传更改到远端仓库"></a>上传更改到远端仓库</h3><p>编辑内容完成后，将更改的内容上传到远端仓库（repository）。</p><p>步骤大致为：将更改加入暂存区 -&gt; 提交暂存区到本地仓库 -&gt; 将本地仓库上传到远端仓库</p><p>（git提供了不同的分支版本的功能，对于初学者，这个功能不常用且容易犯错，故不提及）</p><ol><li>在terminal里通过<code>cd</code>命令进入clone下来的文件夹，上文例子中为<code>brew</code>文件夹，则指令为<code>cd brew</code></li></ol><p><img src="https://cdn.jsdelivr.net/gh/Robert1124/image/PicGo/git-cd.png"></p><p>​    我们可以注意到此时<code>%</code>左侧显示出了我们现在所在的文件目录为<code>brew</code>，即进入成功。</p><ol start="2"><li>使用指令<code>git add .</code>将所做更改加入暂存区</li></ol><p><img src="https://cdn.jsdelivr.net/gh/Robert1124/image/PicGo/git-add.png"></p><ol start="3"><li><p>使用指令<code>git commit -m &quot;commit_message&quot;</code>将暂存区提交到本地仓库</p><p>commit_message即为对于这个更改所做的备注，自由填写</p><p><img src="https://cdn.jsdelivr.net/gh/Robert1124/image/PicGo/git-commit.png"></p></li><li><p>使用指令<code>git push --all</code>将本地仓库提交给远端仓库</p></li><li><p>提交完成后即可回到GitHub的repository界面看到刚刚提交的内容了</p></li></ol><h3 id="从远端仓库更新到本地"><a href="#从远端仓库更新到本地" class="headerlink" title="从远端仓库更新到本地"></a>从远端仓库更新到本地</h3><p>在文件目录使用<code>git pull</code>指令即可。</p><h3 id="回退git版本"><a href="#回退git版本" class="headerlink" title="回退git版本"></a>回退git版本</h3><p>首先回退版本</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset HEAD^            # 回退所有内容到上一个版本 </span><br></pre></td></tr></table></figure><p>之后再做一次上传到远端仓库操作即可</p><p>注意：这个操作只是回退状态，并没有删除commit记录</p><h3 id="附言"><a href="#附言" class="headerlink" title="附言"></a>附言</h3><h4 id="关于-gitignore文件（此部分为转载，原帖，原作者：Foxerless）"><a href="#关于-gitignore文件（此部分为转载，原帖，原作者：Foxerless）" class="headerlink" title="关于.gitignore文件（此部分为转载，原帖，原作者：Foxerless）"></a>关于.gitignore文件（此部分为转载，<a href="https://www.foxerlee.top/2018/03/12/git%20%E5%BF%BD%E7%95%A5%E8%A7%84%E5%88%99%E5%92%8C.%20gitignore%20%E6%96%87%E4%BB%B6/">原帖</a>，原作者：<a href="https://www.foxerlee.top/">Foxerless</a>）</h4><ol><li><p>什么是.gitignore文件</p><p>在使用git作代码管理的时候，可能会遇到这样的一些特殊文件：如大文件、涉及到Key的一些文件、编译过程中的中间文件等等。</p><p>这些文件通常我们不想提交到远程仓库，但是却又都放在同一个文件夹下面。</p><p>这时候，就需要用到我们的.gitignore文件了。</p><p>.gitignore文件的作用就在于过滤文件，将一些我们不希望被追踪管理的文件忽略。</p></li><li><p>如何使用.gitignore文件</p><p>首先我们需要创建一个.gitignore文件。方法如下：</p><ul><li>在远程仓库建立时候自动创建，再pull到本地。</li><li>首先cd到对应的文件夹，然后命令行输入 vim .gitignore</li></ul><p>具体使用规则：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"># 此为注释 – 将被 Git 忽略，可以解释为什么要忽略这些文件</span><br><span class="line"></span><br><span class="line"># 忽略所有 .sample 结尾的文件</span><br><span class="line">*.sample</span><br><span class="line"># 但 lib.sample 除外</span><br><span class="line">!lib.sample 　　</span><br><span class="line"></span><br><span class="line"># 仅仅忽略项目根目录下的 TODO 文件，不包括子文件夹中的 TODO 文件</span><br><span class="line">&#x2F;TODO</span><br><span class="line"></span><br><span class="line"># 忽略 build&#x2F; 目录下的所有文件</span><br><span class="line">build&#x2F; 　　 </span><br><span class="line"></span><br><span class="line"># 会忽略 doc&#x2F;*.txt 但不包括doc&#x2F;subdir&#x2F;*.txt</span><br><span class="line"># 即只忽略当前目录下的.txt文件，不忽略子目录的.txt文件</span><br><span class="line">doc&#x2F;*.txt 　</span><br></pre></td></tr></table></figure></li><li><p>为什么.gitignore无效</p><p>有时候我们会发现，在.gitignore中添加了忽略规则仍然无效，或者远程仓库已经有了一些不必要的文件。</p><p>原因是.gitignore只能忽略那些原来没有被追踪的文件，如果某些文件已经被纳入了版本管理中，则修改.gitignore是无效的。</p><p>解决方法就是先把本地缓存删除（改变成未被追踪状态），然后再提交。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"># 将所用.jpg文件版本管理中删除</span><br><span class="line">git rm -r --cached *.jpg*</span><br><span class="line"># 或者直接将所有文件都从版本管理中删除</span><br><span class="line">git rm -r --cached .</span><br><span class="line"></span><br><span class="line"># 重新添加</span><br><span class="line">git add .</span><br><span class="line"></span><br><span class="line"># 提交新的版本</span><br><span class="line">git commit -m &#39;update .gitignore&#39;</span><br><span class="line"></span><br><span class="line"># 推到远程仓库</span><br><span class="line">git push origin master</span><br></pre></td></tr></table></figure></li></ol><p>&nbsp;&nbsp;</p><p>&nbsp;&nbsp;</p><hr>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://git-scm.com/&quot;&gt;Git&lt;/a&gt; 是一个开源的分布式版本控制系统(version-control system)，用于敏捷高效地处理任何或小或大的项目。在学习工作的内容深入之后，Git将会是一个不可避免，十分有用的工具。常用的托管</summary>
+      
+    
+    
+    
+    <category term="talkings" scheme="https://home.robertw.me/categories/talkings/"/>
+    
+    
+    <category term="教程" scheme="https://home.robertw.me/tags/%E6%95%99%E7%A8%8B/"/>
+    
+    <category term="talkings" scheme="https://home.robertw.me/tags/talkings/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用CDN为blog加速</title>
+    <link href="https://home.robertw.me/2021/04/05/blog-CDN/"/>
+    <id>https://home.robertw.me/2021/04/05/blog-CDN/</id>
+    <published>2021-04-05T19:04:59.278Z</published>
+    <updated>2021-04-06T06:03:49.792Z</updated>
+    
+    <content type="html"><![CDATA[<p>CDN可以提供加速访问。CDN的全称是Content Delivery Network，即内容分发网络。CDN是构建在现有网络基础之上的智能虚拟网络，依靠部署在各地的边缘服务器，通过中心平台的负载均衡、内容分发、调度等功能模块，使用户就近获取所需内容，降低网络拥塞，提高用户访问响应速度和命中率。CDN的关键技术主要有内容存储和分发技术。</p><p>目前较为好用且免费的CDN有jsDelivr和Cloudflare。</p><p>由于我的Blog是部署在GitHub上（包括博客内容和图床），所以在国内的访问速度受限。于是使用Cloudflare进行加速。此处只是加速博客内容，图床部分计划用jsDelivr加速。</p><h3 id="加速全站"><a href="#加速全站" class="headerlink" title="加速全站"></a>加速全站</h3><p><a href="https://juejin.cn/post/6844904122353713165">Cloudflare加速博客内容</a></p><p>因为我使用的是namecheap的域名，所以在DNS配置部分需要参照<a href="https://www.namecheap.com/support/knowledgebase/article.aspx/9607/2210/how-to-set-up-dns-records-for-your-domain-in-cloudflare-account/">这里</a>，不同的域名供应商方法不同，具体请善用搜索引擎。</p><h3 id="加速图床"><a href="#加速图床" class="headerlink" title="加速图床"></a>加速图床</h3><p><a href="https://bili33.top/2020/02/08/jsDelivr-Usage/">使用jsDelivr加速GitHub图床</a></p><p><a href="https://www.jsdelivr.com/">jsDelivr官网</a></p><p>官方给的格式为：</p><p><code>https://cdn.jsdelivr.net/gh/&lt;username&gt;/&lt;repo-name&gt;@&lt;version&gt;/&lt;path&gt;</code></p><p>&nbsp;&nbsp;</p><p>踩过一个坑，在发布完release过后，将文件目录甩到jsDelivr官网给我返回如下链接：</p><p><img src="https://cdn.jsdelivr.net/gh/Robert1124/image/PicGo/jsDelivr.png"></p><p>这个链接并不是可用的，请对照上面的官方格式自己填写，可以在<a href="https://typora.io/">Typora</a>里讲链接粘贴尝试是否能加载出图片。</p><h3 id="附言"><a href="#附言" class="headerlink" title="附言"></a>附言</h3><p>我在写这篇博客的时候发现，如果做出release，比如1.0，我上图的引用链接将会是</p><p><code>https://cdn.jsdelivr.net/gh/Robert1124/image@1.0/PicGo/jsDelivr.png</code></p><p>但如果在这次release发布之后我再次上传图片，继续用这个格式</p><p><code>https://cdn.jsdelivr.net/gh/Robert1124/image@1.0/PicGo/</code>将无法访问新图片。</p><p>这时候我们可以不用release，直接用如下链接来访问。</p><p><code>https://cdn.jsdelivr.net/gh/Robert1124/image/PicGo/</code></p><p>&nbsp;&nbsp;</p><p>&nbsp;&nbsp;</p><hr>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;CDN可以提供加速访问。CDN的全称是Content Delivery Network，即内容分发网络。CDN是构建在现有网络基础之上的智能虚拟网络，依靠部署在各地的边缘服务器，通过中心平台的负载均衡、内容分发、调度等功能模块，使用户就近获取所需内容，降低网络拥塞，提高用户</summary>
+      
+    
+    
+    
+    <category term="Blog相关" scheme="https://home.robertw.me/categories/Blog%E7%9B%B8%E5%85%B3/"/>
+    
+    
+    <category term="教程" scheme="https://home.robertw.me/tags/%E6%95%99%E7%A8%8B/"/>
+    
+    <category term="talkings" scheme="https://home.robertw.me/tags/talkings/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>为Blog提交搜索引擎收录</title>
+    <link href="https://home.robertw.me/2021/04/05/blog-reptile/"/>
+    <id>https://home.robertw.me/2021/04/05/blog-reptile/</id>
+    <published>2021-04-05T18:14:34.810Z</published>
+    <updated>2021-04-05T18:15:22.847Z</updated>
+    
+    <content type="html"><![CDATA[<p>网站在没有提交搜索引擎收录之前，直接搜索你网站的内容是搜不到的，只有提交搜索引擎之后，搜索引擎才能收录你的站点，通过爬虫抓取你网站的东西。</p><p>于是我提交了百度和谷歌的搜索引擎收录，教程如下：</p><p><a href="https://www.itrhx.com/2019/09/17/A48-submit-search-engine-inclusion/">Hexo博客提交百度、谷歌搜索引擎收录</a></p><p>&nbsp;&nbsp;</p><p>&nbsp;&nbsp;</p><hr>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;网站在没有提交搜索引擎收录之前，直接搜索你网站的内容是搜不到的，只有提交搜索引擎之后，搜索引擎才能收录你的站点，通过爬虫抓取你网站的东西。&lt;/p&gt;
+&lt;p&gt;于是我提交了百度和谷歌的搜索引擎收录，教程如下：&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.itrhx.c</summary>
+      
+    
+    
+    
+    <category term="Blog相关" scheme="https://home.robertw.me/categories/Blog%E7%9B%B8%E5%85%B3/"/>
+    
+    
+    <category term="教程" scheme="https://home.robertw.me/tags/%E6%95%99%E7%A8%8B/"/>
+    
+    <category term="talkings" scheme="https://home.robertw.me/tags/talkings/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>为Blog增加Disqus评论系统</title>
+    <link href="https://home.robertw.me/2021/04/05/blog-disqus/"/>
+    <id>https://home.robertw.me/2021/04/05/blog-disqus/</id>
+    <published>2021-04-05T10:37:03.937Z</published>
+    <updated>2021-04-05T11:34:22.857Z</updated>
+    
+    <content type="html"><![CDATA[<p>折腾博客的时候有添加评论系统的想法，实验之后还是将其下线，原因如下：</p><ol><li>影响美观</li><li>拖慢页面加载进度（有解决办法，会在下文贴出）</li><li>使用并不方便，评论者需要有Google，Twitter，Facebook，或者Disqus账号</li><li>在国内支持度很差，需要科学上网（有折中方法，会在下文贴出）</li></ol><p>&nbsp;&nbsp;</p><p>综上，我最后还是下线了这个功能。Blog的美观清爽对我来说才是最重要的，以下为折腾的过程：</p><p><a href="https://havincy.github.io/blog/post/AddDisqusInHexo/">为hexo增加Disqus评论功能</a></p><p><a href="https://blog.skk.moe/post/prevent-disqus-from-slowing-your-site/">使Disqus不再拖累性能和页面加载(Lazyload)</a></p><p><a href="https://blog.skk.moe/post/disqusjs/">优化Disqus使其对墙内的支持更佳</a></p><p>&nbsp;&nbsp;</p><p>感谢提供教程的大佬们：<a href="https://blog.skk.moe/">Sukka</a>，<a href="https://havincy.github.io/blog/">NEW NUY</a></p><p>&nbsp;&nbsp;</p><p>&nbsp;&nbsp;</p><hr>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;折腾博客的时候有添加评论系统的想法，实验之后还是将其下线，原因如下：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;影响美观&lt;/li&gt;
+&lt;li&gt;拖慢页面加载进度（有解决办法，会在下文贴出）&lt;/li&gt;
+&lt;li&gt;使用并不方便，评论者需要有Google，Twitter，Facebook，或者Disq</summary>
+      
+    
+    
+    
+    <category term="Blog相关" scheme="https://home.robertw.me/categories/Blog%E7%9B%B8%E5%85%B3/"/>
+    
+    
+    <category term="教程" scheme="https://home.robertw.me/tags/%E6%95%99%E7%A8%8B/"/>
+    
+    <category term="talkings" scheme="https://home.robertw.me/tags/talkings/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo 使代码块支持Dark模式</title>
+    <link href="https://home.robertw.me/2021/04/04/blog-DarkmodeForCode/"/>
+    <id>https://home.robertw.me/2021/04/04/blog-DarkmodeForCode/</id>
+    <published>2021-04-04T15:20:12.145Z</published>
+    <updated>2021-04-04T15:27:08.005Z</updated>
+    
+    <content type="html"><![CDATA[<p>我使用的Chic主题对于dark模式有很好的支持，但对于代码块并没有支持。</p><p>感谢<a href="https://github.com/starkshaw">starkshaw</a>提供的解决办法。</p><p>打开<code>/themes/Chic/source/css/custom.styl</code>并在里面添加如下代码即可：</p><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Dark mode for pre</span></span><br><span class="line"><span class="selector-class">.dark-theme</span> <span class="selector-class">.post-content</span> <span class="selector-tag">figure</span>,</span><br><span class="line"><span class="selector-class">.dark-theme</span> <span class="selector-class">.post-content</span> <span class="selector-tag">figure</span><span class="selector-class">.highlight</span> <span class="selector-class">.code</span> pre &#123;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="variable">$dark</span>-post-blockquote-background-color;</span><br><span class="line">    <span class="attribute">color</span>: <span class="variable">$dark</span>-mode-pre-foreground-color;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Dark mode for pre line number</span></span><br><span class="line"><span class="selector-class">.dark-theme</span> <span class="selector-class">.post-content</span> <span class="selector-tag">figure</span><span class="selector-class">.highlight</span> <span class="selector-class">.gutter</span> pre &#123;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="variable">$dark</span>-post-blockquote-background-color;</span><br><span class="line">    <span class="attribute">color</span>: <span class="variable">$dark</span>-mode-pre-line-number-foreground-color;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>&nbsp;&nbsp;</p><p>&nbsp;&nbsp;</p><hr>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;我使用的Chic主题对于dark模式有很好的支持，但对于代码块并没有支持。&lt;/p&gt;
+&lt;p&gt;感谢&lt;a href=&quot;https://github.com/starkshaw&quot;&gt;starkshaw&lt;/a&gt;提供的解决办法。&lt;/p&gt;
+&lt;p&gt;打开&lt;code&gt;/themes/Chic/s</summary>
+      
+    
+    
+    
+    <category term="Blog相关" scheme="https://home.robertw.me/categories/Blog%E7%9B%B8%E5%85%B3/"/>
+    
+    
+    <category term="教程" scheme="https://home.robertw.me/tags/%E6%95%99%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo 为博客添加搜索功能</title>
+    <link href="https://home.robertw.me/2021/04/04/blog-search/"/>
+    <id>https://home.robertw.me/2021/04/04/blog-search/</id>
+    <published>2021-04-04T15:06:05.938Z</published>
+    <updated>2021-04-04T15:11:16.859Z</updated>
+    
+    <content type="html"><![CDATA[<p>目前Blog的内容虽然不多，但以后会慢慢更新。</p><p>虽然Categories和Tags已经是不错的筛选文章的工具，但还是没有搜索功能来的方便。</p><p>在网上找到了关于我这个theme的搜索工具，这里放上教程链接：</p><p><a href="https://zhou-bill.github.io/2020/07/09/hexo%E8%87%AA%E5%AE%9A%E4%B9%89/">原帖</a></p><p>原帖中有不少错误，虽然作者在评论区做了更正，但看起来不够方便，感谢Jackie的整理：</p><p><a href="https://maojinyuan.github.io/2020/07/25/20200725Hexo%E5%BB%BA%E7%AB%99%E5%B7%A5%E5%85%B7%E8%B4%B43_Chow%20Bill%E6%90%9C%E7%B4%A2%E5%8A%9F%E8%83%BD/">整理后的教程</a></p><p>不得不提到，这个搜索目前还有样式问题，在移动端打开时，点击搜索icon展开搜索栏的时候，Menu字样会被搜索栏吞掉一半，不够美观。我翻遍评论区也没有可行的办法，折腾了一下午无果。大佬的搜索在移动端是没问题的， <a href="https://zhou-bill.github.io/">Chow_Bill</a>，但我在网络上没有搜索到解决的办法，大佬也没有更新教程。</p><p>会持续关注，如果有解决方案会更新到这里。</p><p>&nbsp;&nbsp;</p><p>&nbsp;&nbsp;</p><hr>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;目前Blog的内容虽然不多，但以后会慢慢更新。&lt;/p&gt;
+&lt;p&gt;虽然Categories和Tags已经是不错的筛选文章的工具，但还是没有搜索功能来的方便。&lt;/p&gt;
+&lt;p&gt;在网上找到了关于我这个theme的搜索工具，这里放上教程链接：&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https</summary>
+      
+    
+    
+    
+    <category term="Blog相关" scheme="https://home.robertw.me/categories/Blog%E7%9B%B8%E5%85%B3/"/>
+    
+    
+    <category term="教程" scheme="https://home.robertw.me/tags/%E6%95%99%E7%A8%8B/"/>
+    
+    <category term="转载" scheme="https://home.robertw.me/tags/%E8%BD%AC%E8%BD%BD/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo 添加文章字数和阅读时长</title>
+    <link href="https://home.robertw.me/2021/04/03/blog-wordCounting_and_readingTime/"/>
+    <id>https://home.robertw.me/2021/04/03/blog-wordCounting_and_readingTime/</id>
+    <published>2021-04-03T12:12:01.549Z</published>
+    <updated>2021-04-06T05:34:49.659Z</updated>
+    
+    <content type="html"><![CDATA[<p>Hexo添加文章字数和阅读时长，我觉得不是必要的，但确实是一个可以优化的方面。</p><p>自从搭建了这个Blog，就总想折腾它，加一些有的没的小功能，慢慢让它更好。</p><p>我是个挺在意细节的人，也是个不想和别人处处一样的人，这就解释了我为什么没选择next的主题-实在太多人用了。有好有坏吧，好处就是这个主题足够优秀，打磨的很棒，相关文档和教程也很多很全，不好的地方，就是我不想和大家都一样吧，同时也缺少了一点折腾的乐趣。我特别怕麻烦，总觉得事情特别多，但真没事了，又闲不下来，很矛盾。</p><p>这是教程正好爬到，也正好就是对应我的这个主题，挺棒。看了这个教程作者的履历，真的很强，希望有一天也可以这样吧。</p><p>言归正传，这个教程适合绝大多数的hexo博客，可能需要稍作更改，贴上原文地址：<a href="https://www.foxerlee.top/2020/02/17/wordcount/">Hexo 添加文章字数和阅读时长</a></p><p>&nbsp;&nbsp;</p><p>&nbsp;&nbsp;</p><hr>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;Hexo添加文章字数和阅读时长，我觉得不是必要的，但确实是一个可以优化的方面。&lt;/p&gt;
+&lt;p&gt;自从搭建了这个Blog，就总想折腾它，加一些有的没的小功能，慢慢让它更好。&lt;/p&gt;
+&lt;p&gt;我是个挺在意细节的人，也是个不想和别人处处一样的人，这就解释了我为什么没选择next的主题</summary>
+      
+    
+    
+    
+    <category term="Blog相关" scheme="https://home.robertw.me/categories/Blog%E7%9B%B8%E5%85%B3/"/>
+    
+    
+    <category term="教程" scheme="https://home.robertw.me/tags/%E6%95%99%E7%A8%8B/"/>
+    
+    <category term="talkings" scheme="https://home.robertw.me/tags/talkings/"/>
+    
+    <category term="转载" scheme="https://home.robertw.me/tags/%E8%BD%AC%E8%BD%BD/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java基础-文件的读写</title>
+    <link href="https://home.robertw.me/2021/04/03/java-fileIO/"/>
+    <id>https://home.robertw.me/2021/04/03/java-fileIO/</id>
+    <published>2021-04-03T05:40:41.570Z</published>
+    <updated>2021-04-06T06:01:24.478Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="Before"><a href="#Before" class="headerlink" title="Before"></a>Before</h3><p>本文用到的IDE为IntelliJ IDEA，也会介绍无包管理存在的情况下的应对方案</p><p>在开始readfile前，需要把目标文件放入相应目录：</p><p><img src="https://cdn.jsdelivr.net/gh/Robert1124/image/PicGo/%E6%88%AA%E5%B1%8F2021-04-03%20%E4%B8%8B%E5%8D%8812.47.03.png"></p><p>在IntelliJ IDEA的环境下，或任何自动生成<code>/src</code>文件夹的IDE里，应该将目标文件（此处为<code>events.txt</code>）放在与<code>/src</code>文件夹平级的目录中</p><p>对于不自动生成<code>/src</code>文件夹的IDE，将目标文件放置于<code>*.java</code>文件平级的目录即可</p><h3 id="Readfile"><a href="#Readfile" class="headerlink" title="Readfile"></a>Readfile</h3><p>此处对于readfile操作，介绍简单的Scanner实现方式（并非唯一方式，也并非最优方式，只是方便初学者记忆的方式）</p><p>首先引入Scanner包（下列二者选一皆可，建议选第二种，可以同时引入File相关的Exception，方便后面做try-catch block）：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//只引入Scanner包和File包</span></span><br><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"><span class="keyword">import</span> java.io.File;</span><br><span class="line"><span class="comment">//引入整个util包（包含Scanner）和整个io包（包含File）</span></span><br><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"><span class="keyword">import</span> java.io.*;</span><br></pre></td></tr></table></figure><p>新建File和Scanner对象：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">File file = <span class="keyword">new</span> File(fileName);<span class="comment">//此处fileName替换为需要引入的fileName，在本例中为&quot;events.txt&quot;</span></span><br><span class="line">Scanner readFile = <span class="keyword">new</span> Scanner(file);</span><br></pre></td></tr></table></figure><p>通过while-loop逐行读取文件内容：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>(readFile.hasNext())&#123;<span class="comment">//通过.hasNext()方法判断文件是否已经读取完整</span></span><br><span class="line">  <span class="comment">/*</span></span><br><span class="line"><span class="comment">  直接将文件当前一整行保存在名为line的string里</span></span><br><span class="line"><span class="comment">  此处将line申明在while-loop内和外皆可，但建议申明在内</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line">  String line = readFile.nextLine();</span><br><span class="line">  <span class="comment">/*</span></span><br><span class="line"><span class="comment">  将内容存在line之后可对line自由进行下一步操作</span></span><br><span class="line"><span class="comment">  常见的操作为：</span></span><br><span class="line"><span class="comment">  1.string的split方法：String[] line_arr = line.split(regex);</span></span><br><span class="line"><span class="comment">    string.split()方法会将一个string从regex表示的内容分割开按顺序保存在一个array里</span></span><br><span class="line"><span class="comment">    regex为regular expression，即正则表达式，具体语法请善用搜索</span></span><br><span class="line"><span class="comment">  2.Integer.parseInt()或Double.parseDouble()，将读取到的string转换为int或double</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>在while-loop之后，记得要close scanner：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">readFile.close();<span class="comment">//现在很多编译器例如IntelliJ IDEA可以省略此句，但从语法和代码完整性角度建议保留</span></span><br></pre></td></tr></table></figure><p>完整代码：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">className</span></span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">readFile</span><span class="params">(String fileName)</span></span>&#123;</span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">    如果此方法没有参数的话，新建file对象时的括号内需要填写完整的fileName</span></span><br><span class="line"><span class="comment">    如File file = new File(&quot;events.txt&quot;);</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    File file = <span class="keyword">new</span> File(fileName);</span><br><span class="line">Scanner readFile = <span class="keyword">new</span> Scanner(file);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span>(readFile.hasNext())&#123;</span><br><span class="line">      String line = readFile.nextLine();</span><br><span class="line">      <span class="comment">/*</span></span><br><span class="line"><span class="comment">      ...</span></span><br><span class="line"><span class="comment">      */</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    readFile.close();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p><strong>上面介绍的为最基础的写法（对Exception没有处理，不建议），此处提供一个包含try-catch block的常规写法：</strong></p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">className</span></span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">readFile</span><span class="params">(String fileName)</span></span>&#123;</span><br><span class="line">    File file = <span class="keyword">new</span> File(fileName);</span><br><span class="line">Scanner readFile = <span class="keyword">null</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">try</span>&#123;</span><br><span class="line">      readFile = <span class="keyword">new</span> Scanner(file);</span><br><span class="line">    &#125;<span class="keyword">catch</span>(FileNotFoundException e)&#123;</span><br><span class="line">      e.printStackTrace();<span class="comment">//视需求而定，可以删除</span></span><br><span class="line">      System.out.println(<span class="string">&quot;File not found&quot;</span>);<span class="comment">//视需求而定，可以删除</span></span><br><span class="line">      System.exit(<span class="number">0</span>);<span class="comment">//必须保留，如果不保留需要在while-loop部分添加assert避免readFile为null的情况</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span>(readFile.hasNext())&#123;</span><br><span class="line">      String line = readFile.nextLine();</span><br><span class="line">      <span class="comment">/*</span></span><br><span class="line"><span class="comment">      ...</span></span><br><span class="line"><span class="comment">      */</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    readFile.close();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="Writefile"><a href="#Writefile" class="headerlink" title="Writefile"></a>Writefile</h3><p>此处对于writefile操作，介绍简单的FileWriter实现方式（并非唯一方式，也并非最优方式）</p><p>首先引入FileWriter包和File包：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//同上</span></span><br><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line"><span class="comment">//只引用FileWriter包和File包，不推荐，但可行</span></span><br><span class="line"><span class="keyword">import</span> java.io.FileWriter;</span><br><span class="line"><span class="keyword">import</span> java.io.File;</span><br></pre></td></tr></table></figure><p>创建File和FileWriter对象：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">File file = <span class="keyword">new</span> File(fileName);<span class="comment">//同上，此处新建File对象是会自动创建新文件</span></span><br><span class="line">FileWriter output = <span class="keyword">new</span> FileWriter(file);<span class="comment">//类似上文提到的Scanner</span></span><br></pre></td></tr></table></figure><p>写入内容：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">此处content为写入内容，自行定义，类型为string</span></span><br><span class="line"><span class="comment">需要注意的是此处.write方法不自带换行，如果需要换行写入，记得在content后添加&quot;\n&quot;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">output.write(content);</span><br></pre></td></tr></table></figure><p>在写入之后，记得要close FileWriter：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">output.flush();<span class="comment">//此为刷新缓冲，可以省略，具体功能请善用搜索</span></span><br><span class="line">output.close();</span><br></pre></td></tr></table></figure><p>此处处理Exception方式与上文类似但不相同，可以参照下面完整实例：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">className</span> <span class="title">throws</span> <span class="title">IOException</span></span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">saveToFile</span><span class="params">(String fileName)</span></span>&#123;</span><br><span class="line">    File file = <span class="keyword">new</span> File(fileName);</span><br><span class="line">FileWriter output = <span class="keyword">new</span> FileWriter(file);</span><br><span class="line">    </span><br><span class="line">    output.write(content);</span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">    ...</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    </span><br><span class="line">    output.flush();</span><br><span class="line">    output.close();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>&nbsp;&nbsp;</p><p>&nbsp;&nbsp;</p><hr>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;Before&quot;&gt;&lt;a href=&quot;#Before&quot; class=&quot;headerlink&quot; title=&quot;Before&quot;&gt;&lt;/a&gt;Before&lt;/h3&gt;&lt;p&gt;本文用到的IDE为IntelliJ IDEA，也会介绍无包管理存在的情况下的应对方案&lt;/p&gt;
+&lt;p&gt;在开始r</summary>
+      
+    
+    
+    
+    <category term="java基础随笔" scheme="https://home.robertw.me/categories/java%E5%9F%BA%E7%A1%80%E9%9A%8F%E7%AC%94/"/>
+    
+    
+    <category term="教程" scheme="https://home.robertw.me/tags/%E6%95%99%E7%A8%8B/"/>
+    
+    <category term="java" scheme="https://home.robertw.me/tags/java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>为Blog添加图床</title>
+    <link href="https://home.robertw.me/2021/04/03/blog-Image_Hosting_Service/"/>
+    <id>https://home.robertw.me/2021/04/03/blog-Image_Hosting_Service/</id>
+    <published>2021-04-03T04:22:30.853Z</published>
+    <updated>2021-04-06T06:01:05.894Z</updated>
+    
+    <content type="html"><![CDATA[<p>图床是用来存放图片的服务器，将图片存在图床里，生存一个图片的url。可以减小Blog的体积，如果挂载CDN还可以增加Blog的加载速度。</p><p>我是用的是<a href="http://www.github.com/">GitHub</a>+<a href="https://github.com/Molunerfinn/PicGo">picGo</a>方案：</p><h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>首先去GitHub新建一个repository，并在setting里获取token（记得保存，token只会生成一次）。</p><p>下载并安装picGo，选择图床，复制repository和token进去。</p><p>配置完成。</p><h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p>选择上传图片到图床。</p><p>上传完成后，picGo会生成图片链接，复制粘贴即可（picGo可以自动生成如markdown，html等格式）</p><p>&nbsp;&nbsp;</p><p>&nbsp;&nbsp;</p><hr>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;图床是用来存放图片的服务器，将图片存在图床里，生存一个图片的url。可以减小Blog的体积，如果挂载CDN还可以增加Blog的加载速度。&lt;/p&gt;
+&lt;p&gt;我是用的是&lt;a href=&quot;http://www.github.com/&quot;&gt;GitHub&lt;/a&gt;+&lt;a href=&quot;htt</summary>
+      
+    
+    
+    
+    <category term="Blog相关" scheme="https://home.robertw.me/categories/Blog%E7%9B%B8%E5%85%B3/"/>
+    
+    
+    <category term="教程" scheme="https://home.robertw.me/tags/%E6%95%99%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>如何在Chic主题的首页添加自定义图标</title>
+    <link href="https://home.robertw.me/2021/04/02/cuctom_icon/"/>
+    <id>https://home.robertw.me/2021/04/02/cuctom_icon/</id>
+    <published>2021-04-02T16:22:59.297Z</published>
+    <updated>2021-04-03T04:19:38.214Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="下载代码"><a href="#下载代码" class="headerlink" title="下载代码"></a>下载代码</h3><ul><li><p>从<a href="https://www.iconfont.cn/">阿里iconfont</a>搜索找到想要的图标</p></li><li><p>选择将图标加入购物车</p></li><li><p>点击购物车选择下载代码</p></li></ul><h3 id="解压代码"><a href="#解压代码" class="headerlink" title="解压代码"></a>解压代码</h3><ul><li><p>解压下载的压缩包</p></li><li><p>首次链接，建议在<code>themes/Chic/source/fonts</code>里新建<code>/font_custom</code>，把解压好的压缩包扔在里面（也可以自定义文件夹名称，或者直接扔在<code>themes/Chic/source/fonts</code>里）</p></li></ul><h3 id="修改文件"><a href="#修改文件" class="headerlink" title="修改文件"></a>修改文件</h3><ul><li><p>在<code>themes/Chic/source/css/style.styl</code>里修改文件，在<code>//icon</code>下加入代码：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;如果把压缩包扔在font_custom里</span><br><span class="line">@import &quot;..&#x2F;fonts&#x2F;font_custom&#x2F;iconfont.css&quot;</span><br><span class="line">&#x2F;&#x2F;如果压缩包在fonts里</span><br><span class="line">@import &quot;..&#x2F;fonts&#x2F;iconfont.css&quot;</span><br></pre></td></tr></table></figure></li></ul><h3 id="查找图标名"><a href="#查找图标名" class="headerlink" title="查找图标名"></a>查找图标名</h3><ul><li>打开压缩包里的<code>iconfont.css</code>查看图标名称</li></ul><h3 id="添加内容"><a href="#添加内容" class="headerlink" title="添加内容"></a>添加内容</h3><ul><li>打开<code>themes/Chic/_config.yml</code>中添加内容即可</li></ul><p>&nbsp;&nbsp;</p><p>&nbsp;&nbsp;</p><hr>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;下载代码&quot;&gt;&lt;a href=&quot;#下载代码&quot; class=&quot;headerlink&quot; title=&quot;下载代码&quot;&gt;&lt;/a&gt;下载代码&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;从&lt;a href=&quot;https://www.iconfont.cn/&quot;&gt;阿里iconfont&lt;/a&gt;搜索找</summary>
+      
+    
+    
+    
+    <category term="Blog相关" scheme="https://home.robertw.me/categories/Blog%E7%9B%B8%E5%85%B3/"/>
+    
+    
+    <category term="教程" scheme="https://home.robertw.me/tags/%E6%95%99%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>近期折腾code-server的记录</title>
+    <link href="https://home.robertw.me/2021/03/31/code-server/"/>
+    <id>https://home.robertw.me/2021/03/31/code-server/</id>
+    <published>2021-03-31T05:21:53.738Z</published>
+    <updated>2021-04-06T06:00:40.364Z</updated>
+    
+    <content type="html"><![CDATA[<p>一年前就开始对nas这类的个人存储中心感兴趣，受限于当时正好在组装台式，预算不够，我个人又不是个很能将就的人，这个计划就暂时搁置了。现在想想其实挺后悔，一年前还在美国，网络比国内的大局域网好很多。</p><p>最早我对nas的理解就是个外置硬盘，然后加上内网文件访问和共享。而这个功能对我来说，不是很有吸引力。这学期定在上海上课，每节课时间很久，课程选择也都是非专业课，我就想着找点东西摸摸鱼。因为笔记本是15寸的mbp，每次带出门都要背个大双肩背包，我就把整活的目光放到iPad上。我当时的想法就是在iPad上写代码。</p><p>虽然arm构架的M1芯片的mbp已经上市，但iPad上还是没有可用的本地ide。插句题外话，有传言Xcode会移植到iPad OS上，如果属实，起码有一个可用的IDE，但我的日常平台还是VS code和Jetbrain，所以Xcode不是我的第一选择。而且既然Mac OS开始支持arm构架，iPad的A系列芯片性能也算不弱，未来可能有大神可以把Mac OS移植到iPad上。</p><p>言归正传，我自然还是希望可以在iPad上使用VS code。想起来一年前有个大佬朋友跟我提过VS code官方出了一个网页的IDE版本，当时试用了一下，使用体验非常不好，但网页IDE提供了一个很好的思路。又去请教了那个大佬，得知了<a href="https://github.com/cdr/code-server">code-server</a>的存在。</p><p>在开始倒腾code-server前还走了个弯路。在网上查到了iPad上其实是可以安装虚拟机的，使用的软件是<a href="https://getutm.app/">UTM</a>，可以安装老版本的Windows或者Linux发行版。问题是现在用UTM安装虚拟机的时候需要越狱环境。我捣鼓越狱最早可以追溯到iOS4的年代（iOS元年，在此之前叫iPhone OS 3）。因为现在移动支付高度发展，越狱会让设备变得不安全，我很早就放弃了越狱，所以这个方案被否决。</p><p>之后就开始倒腾code-server。code-server是GitHub上的一个开源项目，可以快速部署个人的网页版IDE。因为我的想法是要远程访问code-server，考虑到我目前在上海租房，没有公网ip（未来把gen8搬回家也不一定就能搞到公网ip，很无语），于是开通了GitHub的<a href="https://education.github.com/pack">学生包</a>，里面包含了<a href="https://www.digitalocean.com/">Digital Ocean</a>的优惠券和<a href="https://www.namecheap.com/">namecheap</a>的一年免费域名（.me）。这波白嫖实在快乐，我于是可以在do的云服务器上部署code-server，然后挂上免费域名进行远程访问。这样来看，这条路就走得通了。</p><p>首先申请GitHub的student pack，在student pack的界面领取do和namecheap的优惠。之后用GitHub账号注册登陆do和namecheap。</p><p>申请域名很简单，登陆进入namecheap，然后使用优惠券就好。</p><p>Digital Ocean在登陆领取优惠之后，创建一个droplet。贴上我的配置作为参考，具体可以自己选：</p><p><img src="https://cdn.jsdelivr.net/gh/Robert1124/image/PicGo/code-server.jpg"></p><p>因为do的优惠是$100的优惠券，为了白嫖的时间长一点，我只是选择了最基础并且够用的套餐。</p><p>具体的部署方法可以参考GitHub上code-server的官方文档，说的很详细。这里我给出一些我部署时候遇到的问题，一些东西上我的选择，和我觉得可能需要注意的点：</p><ol><li>建议在创建好的droplet上开启ssh，方便远程管理。可以直接使用terminal的ssh命令连接（配置key或者每次输入账号密码），或者使用软件托管，这里我选择的是<a href="https://termius.com/">Termius</a>。全平台支持，而且自带SFTP，方便文件传输。如果是学生的话，Termius同样可以申请学生优惠，给官方发邮件可以白嫖一年，暂时不知道过期之后能不能再次申请。</li><li>code-server上有很多种部署的方法，我选择用caddy把我的code-server挂到namecheap上。也可以用caddy设置多个用户，对应不同的登陆密码和文件访问权限。转发code-server到namecheap需要知道droplet的ip地址（在droplet的管理页面可以看），改写caddyfile，然后在namecheap的管理界面添加。</li><li>可以用SFTP传输文件或者直接扔到code-server上，但SFTP的速度快一点。</li></ol><p>&nbsp;&nbsp;</p><p>&nbsp;&nbsp;</p><hr>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;一年前就开始对nas这类的个人存储中心感兴趣，受限于当时正好在组装台式，预算不够，我个人又不是个很能将就的人，这个计划就暂时搁置了。现在想想其实挺后悔，一年前还在美国，网络比国内的大局域网好很多。&lt;/p&gt;
+&lt;p&gt;最早我对nas的理解就是个外置硬盘，然后加上内网文件访问和共享</summary>
+      
+    
+    
+    
+    <category term="折腾记录" scheme="https://home.robertw.me/categories/%E6%8A%98%E8%85%BE%E8%AE%B0%E5%BD%95/"/>
+    
+    
+    <category term="教程" scheme="https://home.robertw.me/tags/%E6%95%99%E7%A8%8B/"/>
+    
+    <category term="code-server" scheme="https://home.robertw.me/tags/code-server/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="https://home.robertw.me/2021/03/31/hello-world/"/>
+    <id>https://home.robertw.me/2021/03/31/hello-world/</id>
+    <published>2021-03-31T05:21:53.738Z</published>
+    <updated>2021-04-02T16:29:47.726Z</updated>
+    
+    <content type="html"><![CDATA[<p>This is Robert. </p><p>Welcome to my blog.</p><p>Nice to meet you!</p><p>&nbsp;&nbsp;</p><p>&nbsp;&nbsp;</p><hr>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;This is Robert. &lt;/p&gt;
+&lt;p&gt;Welcome to my blog.&lt;/p&gt;
+&lt;p&gt;Nice to meet you!&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&amp;nbsp;&lt;/p&gt;
+&lt;hr&gt;
+</summary>
+      
+    
+    
+    
+    <category term="talkings" scheme="https://home.robertw.me/categories/talkings/"/>
+    
+    
+    <category term="talkings" scheme="https://home.robertw.me/tags/talkings/"/>
+    
+  </entry>
+  
+</feed>
