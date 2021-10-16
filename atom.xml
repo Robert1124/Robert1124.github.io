@@ -289,6 +289,33 @@
   </entry>
   
   <entry>
+    <title>近期折腾code-server的记录</title>
+    <link href="https://home.robertw.me/2021/03/31/code-server/"/>
+    <id>https://home.robertw.me/2021/03/31/code-server/</id>
+    <published>2021-03-31T05:21:53.738Z</published>
+    <updated>2021-04-06T06:00:40.364Z</updated>
+    
+    <content type="html"><![CDATA[<p>一年前就开始对nas这类的个人存储中心感兴趣，受限于当时正好在组装台式，预算不够，我个人又不是个很能将就的人，这个计划就暂时搁置了。现在想想其实挺后悔，一年前还在美国，网络比国内的大局域网好很多。</p><p>最早我对nas的理解就是个外置硬盘，然后加上内网文件访问和共享。而这个功能对我来说，不是很有吸引力。这学期定在上海上课，每节课时间很久，课程选择也都是非专业课，我就想着找点东西摸摸鱼。因为笔记本是15寸的mbp，每次带出门都要背个大双肩背包，我就把整活的目光放到iPad上。我当时的想法就是在iPad上写代码。</p><p>虽然arm构架的M1芯片的mbp已经上市，但iPad上还是没有可用的本地ide。插句题外话，有传言Xcode会移植到iPad OS上，如果属实，起码有一个可用的IDE，但我的日常平台还是VS code和Jetbrain，所以Xcode不是我的第一选择。而且既然Mac OS开始支持arm构架，iPad的A系列芯片性能也算不弱，未来可能有大神可以把Mac OS移植到iPad上。</p><p>言归正传，我自然还是希望可以在iPad上使用VS code。想起来一年前有个大佬朋友跟我提过VS code官方出了一个网页的IDE版本，当时试用了一下，使用体验非常不好，但网页IDE提供了一个很好的思路。又去请教了那个大佬，得知了<a href="https://github.com/cdr/code-server">code-server</a>的存在。</p><p>在开始倒腾code-server前还走了个弯路。在网上查到了iPad上其实是可以安装虚拟机的，使用的软件是<a href="https://getutm.app/">UTM</a>，可以安装老版本的Windows或者Linux发行版。问题是现在用UTM安装虚拟机的时候需要越狱环境。我捣鼓越狱最早可以追溯到iOS4的年代（iOS元年，在此之前叫iPhone OS 3）。因为现在移动支付高度发展，越狱会让设备变得不安全，我很早就放弃了越狱，所以这个方案被否决。</p><p>之后就开始倒腾code-server。code-server是GitHub上的一个开源项目，可以快速部署个人的网页版IDE。因为我的想法是要远程访问code-server，考虑到我目前在上海租房，没有公网ip（未来把gen8搬回家也不一定就能搞到公网ip，很无语），于是开通了GitHub的<a href="https://education.github.com/pack">学生包</a>，里面包含了<a href="https://www.digitalocean.com/">Digital Ocean</a>的优惠券和<a href="https://www.namecheap.com/">namecheap</a>的一年免费域名（.me）。这波白嫖实在快乐，我于是可以在do的云服务器上部署code-server，然后挂上免费域名进行远程访问。这样来看，这条路就走得通了。</p><p>首先申请GitHub的student pack，在student pack的界面领取do和namecheap的优惠。之后用GitHub账号注册登陆do和namecheap。</p><p>申请域名很简单，登陆进入namecheap，然后使用优惠券就好。</p><p>Digital Ocean在登陆领取优惠之后，创建一个droplet。贴上我的配置作为参考，具体可以自己选：</p><p><img src="https://cdn.jsdelivr.net/gh/Robert1124/image/PicGo/code-server.jpg"></p><p>因为do的优惠是$100的优惠券，为了白嫖的时间长一点，我只是选择了最基础并且够用的套餐。</p><p>具体的部署方法可以参考GitHub上code-server的官方文档，说的很详细。这里我给出一些我部署时候遇到的问题，一些东西上我的选择，和我觉得可能需要注意的点：</p><ol><li>建议在创建好的droplet上开启ssh，方便远程管理。可以直接使用terminal的ssh命令连接（配置key或者每次输入账号密码），或者使用软件托管，这里我选择的是<a href="https://termius.com/">Termius</a>。全平台支持，而且自带SFTP，方便文件传输。如果是学生的话，Termius同样可以申请学生优惠，给官方发邮件可以白嫖一年，暂时不知道过期之后能不能再次申请。</li><li>code-server上有很多种部署的方法，我选择用caddy把我的code-server挂到namecheap上。也可以用caddy设置多个用户，对应不同的登陆密码和文件访问权限。转发code-server到namecheap需要知道droplet的ip地址（在droplet的管理页面可以看），改写caddyfile，然后在namecheap的管理界面添加。</li><li>可以用SFTP传输文件或者直接扔到code-server上，但SFTP的速度快一点。</li></ol><p>&nbsp;&nbsp;</p><p>&nbsp;&nbsp;</p><hr>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;一年前就开始对nas这类的个人存储中心感兴趣，受限于当时正好在组装台式，预算不够，我个人又不是个很能将就的人，这个计划就暂时搁置了。现在想想其实挺后悔，一年前还在美国，网络比国内的大局域网好很多。&lt;/p&gt;
+&lt;p&gt;最早我对nas的理解就是个外置硬盘，然后加上内网文件访问和共享</summary>
+      
+    
+    
+    
+    <category term="折腾记录" scheme="https://home.robertw.me/categories/%E6%8A%98%E8%85%BE%E8%AE%B0%E5%BD%95/"/>
+    
+    
+    <category term="教程" scheme="https://home.robertw.me/tags/%E6%95%99%E7%A8%8B/"/>
+    
+    <category term="code-server" scheme="https://home.robertw.me/tags/code-server/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Hello World</title>
     <link href="https://home.robertw.me/2021/03/31/hello-world/"/>
     <id>https://home.robertw.me/2021/03/31/hello-world/</id>
@@ -315,33 +342,6 @@
     
     
     <category term="talkings" scheme="https://home.robertw.me/tags/talkings/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>近期折腾code-server的记录</title>
-    <link href="https://home.robertw.me/2021/03/31/code-server/"/>
-    <id>https://home.robertw.me/2021/03/31/code-server/</id>
-    <published>2021-03-31T05:21:53.738Z</published>
-    <updated>2021-04-06T06:00:40.364Z</updated>
-    
-    <content type="html"><![CDATA[<p>一年前就开始对nas这类的个人存储中心感兴趣，受限于当时正好在组装台式，预算不够，我个人又不是个很能将就的人，这个计划就暂时搁置了。现在想想其实挺后悔，一年前还在美国，网络比国内的大局域网好很多。</p><p>最早我对nas的理解就是个外置硬盘，然后加上内网文件访问和共享。而这个功能对我来说，不是很有吸引力。这学期定在上海上课，每节课时间很久，课程选择也都是非专业课，我就想着找点东西摸摸鱼。因为笔记本是15寸的mbp，每次带出门都要背个大双肩背包，我就把整活的目光放到iPad上。我当时的想法就是在iPad上写代码。</p><p>虽然arm构架的M1芯片的mbp已经上市，但iPad上还是没有可用的本地ide。插句题外话，有传言Xcode会移植到iPad OS上，如果属实，起码有一个可用的IDE，但我的日常平台还是VS code和Jetbrain，所以Xcode不是我的第一选择。而且既然Mac OS开始支持arm构架，iPad的A系列芯片性能也算不弱，未来可能有大神可以把Mac OS移植到iPad上。</p><p>言归正传，我自然还是希望可以在iPad上使用VS code。想起来一年前有个大佬朋友跟我提过VS code官方出了一个网页的IDE版本，当时试用了一下，使用体验非常不好，但网页IDE提供了一个很好的思路。又去请教了那个大佬，得知了<a href="https://github.com/cdr/code-server">code-server</a>的存在。</p><p>在开始倒腾code-server前还走了个弯路。在网上查到了iPad上其实是可以安装虚拟机的，使用的软件是<a href="https://getutm.app/">UTM</a>，可以安装老版本的Windows或者Linux发行版。问题是现在用UTM安装虚拟机的时候需要越狱环境。我捣鼓越狱最早可以追溯到iOS4的年代（iOS元年，在此之前叫iPhone OS 3）。因为现在移动支付高度发展，越狱会让设备变得不安全，我很早就放弃了越狱，所以这个方案被否决。</p><p>之后就开始倒腾code-server。code-server是GitHub上的一个开源项目，可以快速部署个人的网页版IDE。因为我的想法是要远程访问code-server，考虑到我目前在上海租房，没有公网ip（未来把gen8搬回家也不一定就能搞到公网ip，很无语），于是开通了GitHub的<a href="https://education.github.com/pack">学生包</a>，里面包含了<a href="https://www.digitalocean.com/">Digital Ocean</a>的优惠券和<a href="https://www.namecheap.com/">namecheap</a>的一年免费域名（.me）。这波白嫖实在快乐，我于是可以在do的云服务器上部署code-server，然后挂上免费域名进行远程访问。这样来看，这条路就走得通了。</p><p>首先申请GitHub的student pack，在student pack的界面领取do和namecheap的优惠。之后用GitHub账号注册登陆do和namecheap。</p><p>申请域名很简单，登陆进入namecheap，然后使用优惠券就好。</p><p>Digital Ocean在登陆领取优惠之后，创建一个droplet。贴上我的配置作为参考，具体可以自己选：</p><p><img src="https://cdn.jsdelivr.net/gh/Robert1124/image/PicGo/code-server.jpg"></p><p>因为do的优惠是$100的优惠券，为了白嫖的时间长一点，我只是选择了最基础并且够用的套餐。</p><p>具体的部署方法可以参考GitHub上code-server的官方文档，说的很详细。这里我给出一些我部署时候遇到的问题，一些东西上我的选择，和我觉得可能需要注意的点：</p><ol><li>建议在创建好的droplet上开启ssh，方便远程管理。可以直接使用terminal的ssh命令连接（配置key或者每次输入账号密码），或者使用软件托管，这里我选择的是<a href="https://termius.com/">Termius</a>。全平台支持，而且自带SFTP，方便文件传输。如果是学生的话，Termius同样可以申请学生优惠，给官方发邮件可以白嫖一年，暂时不知道过期之后能不能再次申请。</li><li>code-server上有很多种部署的方法，我选择用caddy把我的code-server挂到namecheap上。也可以用caddy设置多个用户，对应不同的登陆密码和文件访问权限。转发code-server到namecheap需要知道droplet的ip地址（在droplet的管理页面可以看），改写caddyfile，然后在namecheap的管理界面添加。</li><li>可以用SFTP传输文件或者直接扔到code-server上，但SFTP的速度快一点。</li></ol><p>&nbsp;&nbsp;</p><p>&nbsp;&nbsp;</p><hr>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;一年前就开始对nas这类的个人存储中心感兴趣，受限于当时正好在组装台式，预算不够，我个人又不是个很能将就的人，这个计划就暂时搁置了。现在想想其实挺后悔，一年前还在美国，网络比国内的大局域网好很多。&lt;/p&gt;
-&lt;p&gt;最早我对nas的理解就是个外置硬盘，然后加上内网文件访问和共享</summary>
-      
-    
-    
-    
-    <category term="折腾记录" scheme="https://home.robertw.me/categories/%E6%8A%98%E8%85%BE%E8%AE%B0%E5%BD%95/"/>
-    
-    
-    <category term="教程" scheme="https://home.robertw.me/tags/%E6%95%99%E7%A8%8B/"/>
-    
-    <category term="code-server" scheme="https://home.robertw.me/tags/code-server/"/>
     
   </entry>
   
